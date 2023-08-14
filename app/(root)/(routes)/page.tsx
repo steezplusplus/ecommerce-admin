@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 
-import { UserButton } from "@clerk/nextjs";
 import { useStoreModal } from "@/hooks/useStoreModal";
 
 export default function SetupPage() {
@@ -15,11 +14,5 @@ export default function SetupPage() {
     }
   }, [isOpen, onOpen]);
 
-  return (
-    <main>
-      <h1 className="text-xl">Admin Dashboard</h1>
-      <p>This is a protected route</p>
-      <UserButton afterSignOutUrl="/" />
-    </main >
-  )
+  return <div className="h-screen w-screen bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500" />;
 }

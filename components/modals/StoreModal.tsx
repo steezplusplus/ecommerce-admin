@@ -33,14 +33,13 @@ export function StoreModal() {
     try {
       setLoading(true);
       const response = await axios.post('/api/stores', values);
-      toast.success('Store created!');
+      window.location.assign(`/${response.data.id}`); // goes to (dashboard)/[storeId]/(routes)/page.tsx
     } catch (error) {
       console.error(error);
       toast.error('Something went wrong! :(');
     } finally {
       setLoading(false);
     }
-    // TODO Create store
   }
 
   return (
