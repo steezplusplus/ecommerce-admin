@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 
+import { ToasterProvider } from '@/providers/ToastProvider'
 import { ModalProvider } from '@/providers/ModalProvider'
 
 import './globals.css'
@@ -22,6 +23,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
+          <ToasterProvider />
           <ModalProvider />
           {children}
         </body>
