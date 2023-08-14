@@ -1,6 +1,8 @@
-import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs";
+
 import { prisma } from "@/lib/db";
+import { Nav } from "@/components/Nav";
 
 type DashboardLayoutProps = {
   children: React.ReactNode;
@@ -30,11 +32,7 @@ export default async function DashboardLayout(props: DashboardLayoutProps) {
 
   return (
     <>
-      <nav className="px-2 py-1 border-b bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500">
-        <ul className="flex items-center">
-          <h1 className="text-xl text-white text-">E-commerce Admin</h1>
-        </ul>
-      </nav>
+      <Nav />
       <main className="p-2">
         {children}
       </main>
