@@ -14,12 +14,12 @@ const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }
 
-export const prismadb = globalForPrisma.prisma ?? new PrismaClient({
+export const prisma = globalForPrisma.prisma ?? new PrismaClient({
   log: NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
 });
 
 if (NODE_ENV !== "production") {
-  globalForPrisma.prisma = prismadb;
+  globalForPrisma.prisma = prisma;
 }
 
 
