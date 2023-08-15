@@ -2,7 +2,7 @@
 
 import { Check, ChevronsUpDown, PlusCircle, Store as StoreIcon } from "lucide-react";
 import { useState } from "react"
-import type { Store } from "@prisma/client";
+import { Store } from "@prisma/client";
 
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
