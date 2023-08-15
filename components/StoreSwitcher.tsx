@@ -1,17 +1,36 @@
 "use client";
 
-import { Check, ChevronsUpDown, PlusCircle, Store as StoreIcon } from "lucide-react";
-import { useState } from "react"
-import { Store } from "@prisma/client";
+import { useState } from "react";
+import { Check, ChevronsUpDown, PlusCircle, Store } from "lucide-react"
 
-import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
-import { Command, CommandList, CommandInput, CommandEmpty, CommandGroup, CommandItem, CommandSeparator } from "@/components/ui/command";
-import { useStoreModal } from "@/hooks/useStoreModal";
-import { useParams, useRouter } from "next/navigation";
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from "@/components/ui/command"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { useStoreModal } from "@/hooks/useStoreModal"
+import { useParams, useRouter } from "next/navigation"
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
+
+type Store = {
+  id: string;
+  name: string;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 type StoreSwitcherProps = {
   className: string;
@@ -43,7 +62,7 @@ export function StoreSwitcher(props: StoreSwitcherProps) {
           aria-label="Select a store"
           className={cn("w-[200px] justify-between", className)}
         >
-          <StoreIcon className="mr-2 h-4 w-4" />
+          <Store className="mr-2 h-4 w-4" />
           {selectedStore?.name}
           <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -61,7 +80,7 @@ export function StoreSwitcher(props: StoreSwitcherProps) {
                     onSelect={() => onSelectStore(store)}
                     className="text-sm"
                   >
-                    <StoreIcon className="mr-2 h-4 w-4" />
+                    <Store className="mr-2 h-4 w-4" />
                     {store.name} {/* TODO Can cause newline if name too long */}
                     <Check
                       className={cn(
