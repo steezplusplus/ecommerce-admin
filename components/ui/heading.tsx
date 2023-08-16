@@ -1,5 +1,3 @@
-import { Button } from "./button";
-
 type HeadingProps = {
   title: string;
   description: string;
