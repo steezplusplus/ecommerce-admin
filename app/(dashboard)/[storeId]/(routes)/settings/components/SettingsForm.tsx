@@ -1,16 +1,17 @@
-"use client";
+"use client"
 
-import * as z from "zod";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod"
+import axios from "axios"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { toast } from "react-hot-toast"
+import { Trash } from "lucide-react"
+import { Store } from "@prisma/client"
+import { useParams, useRouter } from "next/navigation"
+import { useState } from "react"
 
-import { Trash } from "lucide-react";
-import { Store } from "@prisma/client";
-import { Heading } from "@/components/ui/heading";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
@@ -19,30 +20,60 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-
-type SettingsFormProps = {
-  initialData: Store,
-};
+import { Separator } from "@/components/ui/separator"
+import { Heading } from "@/components/ui/heading"
 
 const formSchema = z.object({
-  name: z.string().min(1),
+  name: z.string().min(2),
 });
 
-type SettingsFormValues = z.infer<typeof formSchema>;
+type SettingsFormValues = z.infer<typeof formSchema>
 
-export function SettingsForm(props: SettingsFormProps) {
-  const { initialData } = props;
-  const [isOpen, setOpen] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
+interface SettingsFormProps {
+  initialData: Store;
+};
+
+export const SettingsForm: React.FC<SettingsFormProps> = ({
+  initialData
+}) => {
+  const params = useParams();
+  const router = useRouter();
+
+  // const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const form = useForm<SettingsFormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData,
+    defaultValues: initialData
   });
 
-  function onSubmit(data: SettingsFormValues) {
-    console.log(data);
-  }
+  const onSubmit = async (data: SettingsFormValues) => {
+    try {
+      setLoading(true);
+      await axios.patch(`/api/stores/${params.storeId}`, data);
+      router.refresh();
+      toast.success('Store updated.');
+    } catch (error: any) {
+      toast.error('Something went wrong.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // const onDelete = async () => {
+  //   try {
+  //     setLoading(true);
+  //     await axios.delete(`/api/stores/${params.storeId}`);
+  //     router.refresh();
+  //     router.push('/');
+  //     toast.success('Store deleted.');
+  //   } catch (error: any) {
+  //     toast.error('Make sure you removed all products and categories first.');
+  //   } finally {
+  //     setLoading(false);
+  //     setOpen(false);
+  //   }
+  // }
 
   return (
     <>
@@ -52,7 +83,7 @@ export function SettingsForm(props: SettingsFormProps) {
           disabled={loading}
           variant="destructive"
           size="sm"
-          onClick={() => setOpen(true)}
+          onClick={() => toast.error("TODO: DELETE")}
         >
           <Trash className="h-4 w-4" />
         </Button>
