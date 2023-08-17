@@ -1,3 +1,5 @@
+"use client";
+
 import { toast } from "react-hot-toast";
 import { Server, Copy } from "lucide-react";
 

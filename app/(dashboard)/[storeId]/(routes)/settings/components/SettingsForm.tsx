@@ -10,6 +10,7 @@ import { Store } from "@prisma/client";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { useOrigin } from "@/hooks/useOrigin";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -41,6 +42,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
 }) => {
   const params = useParams();
   const router = useRouter();
+  const origin = useOrigin();
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -121,7 +123,11 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
         </form>
       </Form>
       <Separator />
-      <AlertCopyPasta title="NEXT_PUBLIC_API_URL" description="Description" variant="public" />
+      <AlertCopyPasta
+        title="NEXT_PUBLIC_API_URL"
+        description={`${origin}/api/${params.storeId}`}
+        variant="public"
+      />
     </>
   );
 };
