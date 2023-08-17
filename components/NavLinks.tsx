@@ -16,7 +16,12 @@ export function NavLinks(props: NavLinksProps) {
 
   const routes = [
     {
-      label: 'Settings', // TODO Create settings page?
+      label: 'Overview',
+      href: `/${params.storeId}`,
+      active: pathName === `/${params.storeId}`,
+    },
+    {
+      label: 'Settings',
       href: `/${params.storeId}/settings`,
       active: pathName === `/${params.storeId}/settings`,
     },
