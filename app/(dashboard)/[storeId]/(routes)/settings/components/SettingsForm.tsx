@@ -1,20 +1,21 @@
-"use client"
+"use client";
 
-import * as z from "zod"
-import axios from "axios"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { toast } from "react-hot-toast"
-import { Trash } from "lucide-react"
-import { Store } from "@prisma/client"
-import { useParams, useRouter } from "next/navigation"
-import { useState } from "react"
+import * as z from "zod";
+import axios from "axios";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { Trash } from "lucide-react";
+import { Store } from "@prisma/client";
+import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
 
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { Heading } from "@/components/ui/heading"
-import { AlertModal } from "@/components/modals/AlertModal"
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { Heading } from "@/components/ui/heading";
+import { AlertModal } from "@/components/modals/AlertModal";
+import { AlertCopyPasta } from "@/components/ui/alertCopyPasta";
 import {
   Form,
   FormControl,
@@ -22,7 +23,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
+} from "@/components/ui/form";
 
 
 const formSchema = z.object({
@@ -120,6 +121,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
         </form>
       </Form>
       <Separator />
+      <AlertCopyPasta title="NEXT_PUBLIC_API_URL" description="Description" variant="public" />
     </>
   );
 };
