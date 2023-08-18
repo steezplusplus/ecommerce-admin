@@ -37,6 +37,7 @@ interface SettingsFormProps {
   initialData: Store;
 };
 
+// TODO Refactor to func
 export const SettingsForm: React.FC<SettingsFormProps> = ({
   initialData
 }) => {
