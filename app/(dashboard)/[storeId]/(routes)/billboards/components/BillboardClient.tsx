@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { useParams, useRouter } from "next/navigation";
-import { Billboard } from "@prisma/client";
+import { BillboardColumn, columns } from "./Columns";
+import { DataTable } from "@/components/ui/dataTable";
 
 type BillboardClientProps = {
-  billboards: Billboard[];
+  billboards: BillboardColumn[];
 }
 
 // TODO use Link for navigation not button
@@ -28,7 +29,7 @@ export function BillboardClient(props: BillboardClientProps) {
         </Button>
       </div>
       <Separator />
-      <p>Todo show all billboards</p>
+      <DataTable columns={columns} data={billboards} searchKey="" />
     </>
   );
 } 
