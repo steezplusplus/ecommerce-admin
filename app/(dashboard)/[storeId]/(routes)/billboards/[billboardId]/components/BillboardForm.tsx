@@ -8,8 +8,8 @@ import { Trash } from "lucide-react";
 import { Billboard } from "@prisma/client";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
+import axios from "axios";
 
-import { useOrigin } from "@/hooks/useOrigin";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -63,9 +63,15 @@ export function BillboardForm(props: BillboardFormProps) {
   const onSubmit = async (data: BillboardFormValues) => {
     try {
       setLoading(true);
-      // TODO Post /api/storeId/dashboards/
+      if (initialData) {
+        await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`, data);
+      } else {
+        await axios.post(`/api/${params.storeId}/billboards`, data);
+      }
+      router.refresh();
+      router.push(`/${params.storeId}/billboards`);
       toast.success(toastMessage);
-    } catch (error: any) {
+    } catch (error) {
       toast.error('Something went wrong.');
     } finally {
       setLoading(false);
@@ -75,10 +81,10 @@ export function BillboardForm(props: BillboardFormProps) {
   const onDelete = async () => {
     try {
       setLoading(true);
-      // TODO Delete /api/storeId/dashboards/dashboardId
-      toast.success('Billboard updated.');
-    } catch (error: any) {
-      toast.error('Something went wrong.');
+      await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`);
+      toast.success('Billboard deleted.');
+    } catch (error) {
+      toast.error('Make sure you removed all categories that use this billboard and try again.');
     } finally {
       setLoading(false);
       setOpen(false);
