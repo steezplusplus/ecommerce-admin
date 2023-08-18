@@ -22,8 +22,8 @@ export function NavLinks(props: NavLinksProps) {
     },
     {
       label: 'Billboards',
-      href: `/${params.storeId}/billboard`,
-      active: pathName === `/${params.storeId}/billboard`,
+      href: `/${params.storeId}/billboards`,
+      active: pathName === `/${params.storeId}/billboards`,
     },
     {
       label: 'Settings',
