@@ -36,7 +36,7 @@ export function CellAction(props: CellActionProps) {
       toast.success('Size deleted.');
       router.refresh();
     } catch (error) {
-      toast.error('');
+      toast.error('Make sure you removed all products using this size.');
     } finally {
       setOpen(false);
       setLoading(false);
