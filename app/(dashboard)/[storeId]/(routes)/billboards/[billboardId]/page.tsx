@@ -5,7 +5,7 @@
  */
 
 import { prisma } from "@/lib/db";
-import { BillboardForm } from "./components/BillboardForm";
+import { BillboardForm } from "./components/billboard-form";
 
 type BillboardPageProps = {
   params: {

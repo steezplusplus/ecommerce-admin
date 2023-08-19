@@ -1,8 +1,8 @@
 import { format } from "date-fns";
 
 import { prisma } from "@/lib/db";
-import type { BillboardColumn } from "./components/Columns"
-import { BillboardClient } from "./components/BillboardClient";
+import type { BillboardColumn } from "./components/columns"
+import { BillboardClient } from "./components/billboard-client";
 
 type BillboardsPageProps = {
   params: {

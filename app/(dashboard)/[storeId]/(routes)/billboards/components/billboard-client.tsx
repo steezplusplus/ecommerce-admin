@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { useParams, useRouter } from "next/navigation";
-import { BillboardColumn, columns } from "./Columns";
+import { BillboardColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/dataTable";
 import { CopyPastaList } from "@/components/ui/copy-pasta-list";
 
