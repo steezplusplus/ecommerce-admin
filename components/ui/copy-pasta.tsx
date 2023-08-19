@@ -8,23 +8,23 @@ import { Badge, BadgeProps } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 
-type AlertCopyPastaProps = {
+type CopyPastaProps = {
   title: string;
   description: string;
   variant: "public" | "admin";
 }
 
-const textMap: Record<AlertCopyPastaProps["variant"], string> = {
+const textMap: Record<CopyPastaProps["variant"], string> = {
   public: "Public",
   admin: "Admin",
 };
 
-const variantMap: Record<AlertCopyPastaProps["variant"], BadgeProps["variant"]> = {
+const variantMap: Record<CopyPastaProps["variant"], BadgeProps["variant"]> = {
   public: "secondary",
   admin: "destructive",
 };
 
-export function AlertCopyPasta(props: AlertCopyPastaProps) {
+export function CopyPasta(props: CopyPastaProps) {
   const { title, description, variant } = props;
 
   function handleCopy() {

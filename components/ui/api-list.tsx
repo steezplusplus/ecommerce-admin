@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import { useOrigin } from "@/hooks/useOrigin";
-import { AlertCopyPasta } from "@/components/ui/alertCopyPasta";
+import { CopyPasta } from "@/components/ui/copy-pasta";
 
 type ApiListProps = {
   entityName: string;
@@ -17,27 +17,27 @@ export function ApiList(props: ApiListProps) {
 
   return (
     <div className="flex flex-col gap-y-2">
-      <AlertCopyPasta
+      <CopyPasta
         title="GET"
         variant="public"
         description={`${baseUrl}/${entityName}`}
       />
-      <AlertCopyPasta
+      <CopyPasta
         title="GET"
         variant="public"
         description={`${baseUrl}/${entityName}/{${entityIdName}}`}
       />
-      <AlertCopyPasta
+      <CopyPasta
         title="POST"
         variant="admin"
         description={`${baseUrl}/${entityName}`}
       />
-      <AlertCopyPasta
+      <CopyPasta
         title="PATCH"
         variant="admin"
         description={`${baseUrl}/${entityName}/{${entityIdName}}`}
       />
-      <AlertCopyPasta
+      <CopyPasta
         title="DELETE"
         variant="admin"
         description={`${baseUrl}/${entityName}/{${entityIdName}}`}

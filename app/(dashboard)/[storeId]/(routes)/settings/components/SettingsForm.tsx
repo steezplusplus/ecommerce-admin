@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Heading } from "@/components/ui/heading";
 import { AlertModal } from "@/components/modals/AlertModal";
-import { AlertCopyPasta } from "@/components/ui/alertCopyPasta";
+import { CopyPasta } from "@/components/ui/copy-pasta";
 import {
   Form,
   FormControl,
@@ -124,7 +124,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
         </form>
       </Form>
       <Separator />
-      <AlertCopyPasta
+      <CopyPasta
         title="NEXT_PUBLIC_API_URL"
         description={`${origin}/api/${params.storeId}`}
         variant="public"
