@@ -10,7 +10,7 @@ import { Store } from "@prisma/client";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { useOrigin } from "@/hooks/useOrigin";
+import { useOrigin } from "@/hooks/use-origin";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";

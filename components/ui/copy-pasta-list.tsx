@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useOrigin } from "@/hooks/useOrigin";
+import { useOrigin } from "@/hooks/use-origin";
 import { CopyPasta } from "@/components/ui/copy-pasta";
 
 type CopyPastaListProps = {

@@ -19,7 +19,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { useStoreModal } from "@/hooks/useStoreModal"
+import { useStoreModal } from "@/hooks/use-store-modal"
 import { useParams, useRouter } from "next/navigation"
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
