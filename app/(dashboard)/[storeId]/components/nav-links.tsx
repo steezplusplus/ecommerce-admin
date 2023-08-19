@@ -33,19 +33,20 @@ export function NavLinks(props: NavLinksProps) {
   ];
 
   return (
-    <nav className={cn('flex items-center space-x-4 lg:space-x-6', className)}>
+    <>
       {routes.map((route) => {
         return (
-          <Link
-            key={route.href}
-            href={route.href}
-            className={cn('text-sm font-medium transition-colors hover:text-primary',
-              route.active ? "text-black dark:text-white" : "text-muted-foreground")}
-          >
-            {route.label}
-          </Link>
+          <li key={route.href}>
+            <Link
+              href={route.href}
+              className={cn('text-sm font-medium transition-colors hover:text-primary',
+                route.active ? "text-black dark:text-white" : "text-muted-foreground")}
+            >
+              {route.label}
+            </Link>
+          </li>
         );
       })}
-    </nav>
+    </>
   );
 }

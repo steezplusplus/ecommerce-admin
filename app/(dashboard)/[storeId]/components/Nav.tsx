@@ -19,12 +19,16 @@ export async function Nav() {
   });
 
   return (
-    <div className="flex h-16 items-center px-4 border-b">
-      <StoreSwitcher stores={stores} className="" />
-      <NavLinks className="mx-6" />
-      <div className="ml-auto">
-        <UserButton afterSignOutUrl="/" />
-      </div>
-    </div>
+    <nav className="border-b">
+      <ul className="flex items-center gap-x-4 px-4 py-2">
+        <li>
+          <StoreSwitcher stores={stores} className="" />
+        </li>
+        <NavLinks className="mx-6" />
+        <li className="ml-auto">
+          <UserButton afterSignOutUrl="/" />
+        </li>
+      </ul>
+    </nav>
   );
 }
