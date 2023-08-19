@@ -2,8 +2,8 @@ import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 
-import { ToasterProvider } from '@/providers/ToastProvider'
-import { ModalProvider } from '@/providers/ModalProvider'
+import { ToasterProvider } from '@/providers/toast-provider'
+import { ModalProvider } from '@/providers/modal-provider'
 
 import './globals.css'
 
