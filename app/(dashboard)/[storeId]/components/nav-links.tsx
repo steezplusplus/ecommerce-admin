@@ -26,6 +26,31 @@ export function NavLinks(props: NavLinksProps) {
       active: pathName === `/${params.storeId}/billboards`,
     },
     {
+      label: 'Categories',
+      href: `/${params.storeId}/categories`,
+      active: pathName === `/${params.storeId}/categories`,
+    },
+    {
+      label: 'Sizes',
+      href: `/${params.storeId}/sizes`,
+      active: pathName === `/${params.storeId}/sizes`,
+    },
+    {
+      label: 'Colors',
+      href: `/${params.storeId}/colors`,
+      active: pathName === `/${params.storeId}/colors`,
+    },
+    {
+      label: 'Products',
+      href: `/${params.storeId}/products`,
+      active: pathName === `/${params.storeId}/products`,
+    },
+    {
+      label: 'Orders',
+      href: `/${params.storeId}/orders`,
+      active: pathName === `/${params.storeId}/orders`,
+    },
+    {
       label: 'Settings',
       href: `/${params.storeId}/settings`,
       active: pathName === `/${params.storeId}/settings`,
