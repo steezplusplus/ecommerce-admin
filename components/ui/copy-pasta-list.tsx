@@ -4,12 +4,12 @@ import { useParams } from "next/navigation";
 import { useOrigin } from "@/hooks/useOrigin";
 import { CopyPasta } from "@/components/ui/copy-pasta";
 
-type ApiListProps = {
+type CopyPastaListProps = {
   entityName: string;
   entityIdName: string;
 }
 
-export function ApiList(props: ApiListProps) {
+export function CopyPastaList(props: CopyPastaListProps) {
   const { entityName, entityIdName } = props;
   const params = useParams();
   const origin = useOrigin();
