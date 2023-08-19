@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Heading } from "@/components/ui/heading";
 import { AlertModal } from "@/components/modals/AlertModal";
-import { ImageUpload } from "@/components/ui/imageUpload";
+import { ImageUpload } from "@/components/ui/image-upload";
 import {
   Form,
   FormControl,

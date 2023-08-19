@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react';
 import { CldUploadWidget } from "next-cloudinary";
 import { Trash, ImagePlus } from 'lucide-react';
 
-
 import { Button } from '@/components/ui/button';
 
 type ImageUploadProps = {
