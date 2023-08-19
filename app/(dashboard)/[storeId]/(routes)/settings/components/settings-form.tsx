@@ -28,19 +28,18 @@ import {
 
 
 const formSchema = z.object({
-  name: z.string().min(2),
+  name: z.string().min(1),
 });
 
 type SettingsFormValues = z.infer<typeof formSchema>
 
-interface SettingsFormProps {
+type SettingsFormProps = {
   initialData: Store;
 };
 
 // TODO Refactor to func
-export const SettingsForm: React.FC<SettingsFormProps> = ({
-  initialData
-}) => {
+export function SettingsForm(props: SettingsFormProps) {
+  const { initialData } = props;
   const params = useParams();
   const router = useRouter();
   const origin = useOrigin();
