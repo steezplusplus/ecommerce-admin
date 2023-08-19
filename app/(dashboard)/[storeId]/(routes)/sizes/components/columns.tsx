@@ -25,8 +25,7 @@ export const columns: ColumnDef<SizeColumn>[] = [
     header: "Date",
   },
   {
-    accessorKey: "Actions",
-    // cell: ({ row }) => <CellAction data={row.original} />,
-    cell: () => <p>TODO</p>,
+    id: "actions",
+    cell: ({ row }) => <CellAction size={row.original} />
   },
 ];
