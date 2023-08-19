@@ -16,7 +16,7 @@ export default async function SizesPage(props: SizesPageProps) {
 
   const sizes = await prisma.size.findMany({
     where: {
-      id: params.storeId,
+      storeId: params.storeId,
     },
     orderBy: {
       createdAt: 'desc',
