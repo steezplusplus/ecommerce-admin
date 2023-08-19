@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs";
 
 import { prisma } from "@/lib/db";
-import { Nav } from "./components/Nav";
+import { Nav } from "./components/nav";
 
 type DashboardLayoutProps = {
   children: React.ReactNode;

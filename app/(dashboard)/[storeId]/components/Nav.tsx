@@ -2,8 +2,8 @@ import { UserButton, auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 import { prisma } from "@/lib/db";
-import { NavLinks } from "./NavLinks";
-import { StoreSwitcher } from "./StoreSwitcher";
+import { NavLinks } from "./nav-links";
+import { StoreSwitcher } from "./store-switcher";
 
 export async function Nav() {
   const { userId } = auth();
