@@ -18,42 +18,42 @@ export function NavLinks(props: NavLinksProps) {
     {
       label: 'Overview',
       href: `/${params.storeId}`,
-      active: pathName === `/${params.storeId}`,
+      active: pathName.startsWith(`/${params.storeId}`),
     },
     {
       label: 'Billboards',
       href: `/${params.storeId}/billboards`,
-      active: pathName === `/${params.storeId}/billboards`,
+      active: pathName.startsWith(`/${params.storeId}/billboards`),
     },
     {
       label: 'Categories',
       href: `/${params.storeId}/categories`,
-      active: pathName === `/${params.storeId}/categories`,
+      active: pathName.startsWith(`/${params.storeId}/categories`),
     },
     {
       label: 'Sizes',
       href: `/${params.storeId}/sizes`,
-      active: pathName === `/${params.storeId}/sizes`,
+      active: pathName.startsWith(`/${params.storeId}/sizes`),
     },
     {
       label: 'Colors',
       href: `/${params.storeId}/colors`,
-      active: pathName === `/${params.storeId}/colors`,
+      active: pathName.startsWith(`/${params.storeId}/colors`),
     },
     {
       label: 'Products',
       href: `/${params.storeId}/products`,
-      active: pathName === `/${params.storeId}/products`,
+      active: pathName.startsWith(`/${params.storeId}/products`),
     },
     {
       label: 'Orders',
       href: `/${params.storeId}/orders`,
-      active: pathName === `/${params.storeId}/orders`,
+      active: pathName.startsWith(`/${params.storeId}/orders`),
     },
     {
       label: 'Settings',
       href: `/${params.storeId}/settings`,
-      active: pathName === `/${params.storeId}/settings`,
+      active: pathName.startsWith(`/${params.storeId}/settings`),
     },
   ];
 
