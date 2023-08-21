@@ -20,7 +20,6 @@ export default async function ProductPage(props: ProductPageProps) {
   const product = await prisma.product.findUnique({
     where: {
       id: params.productId,
-      storeId: params.storeId,
     },
     include: {
       images: true,
@@ -29,19 +28,19 @@ export default async function ProductPage(props: ProductPageProps) {
 
   const categories = await prisma.category.findMany({
     where: {
-      id: params.storeId,
+      storeId: params.storeId,
     },
   });
 
   const sizes = await prisma.size.findMany({
     where: {
-      id: params.storeId,
+      storeId: params.storeId,
     },
   });
 
   const colors = await prisma.color.findMany({
     where: {
-      id: params.storeId,
+      storeId: params.storeId,
     },
   });
 
