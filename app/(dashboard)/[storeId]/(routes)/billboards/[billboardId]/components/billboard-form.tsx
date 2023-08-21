@@ -81,7 +81,7 @@ export function BillboardForm(props: BillboardFormProps) {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`);
+      await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
       toast.success('Billboard deleted.');
     } catch (error) {
       toast.error('Make sure you removed all categories that use this billboard and try again.');
