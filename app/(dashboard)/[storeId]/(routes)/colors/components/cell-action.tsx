@@ -16,14 +16,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { AlertModal } from "@/components/modals/alert-modal";
 
-import { SizeColumn } from "./columns";
+import { ColorColumn } from "./columns";
 
 type CellActionProps = {
-  size: SizeColumn;
+  color: ColorColumn;
 }
 
 export function CellAction(props: CellActionProps) {
-  const { size } = props;
+  const { color } = props;
   const router = useRouter();
   const params = useParams();
   const [open, setOpen] = useState(false);
@@ -32,11 +32,11 @@ export function CellAction(props: CellActionProps) {
   const onConfirm = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/${params.storeId}/sizes/${size.id}`);
-      toast.success('Size deleted.');
+      await axios.delete(`/api/${params.storeId}/colors/${color.id}`);
+      toast.success('Color deleted.');
       router.refresh();
     } catch (error) {
-      toast.error('Make sure you removed all products using this size.');
+      toast.error('Make sure you removed all products using this color.');
     } finally {
       setOpen(false);
       setLoading(false);
@@ -45,7 +45,7 @@ export function CellAction(props: CellActionProps) {
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success('Size ID copied to clipboard.');
+    toast.success('Color ID copied to clipboard.');
   }
 
   return (
@@ -66,12 +66,12 @@ export function CellAction(props: CellActionProps) {
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
           <DropdownMenuItem
-            onClick={() => onCopy(size.id)}
+            onClick={() => onCopy(color.id)}
           >
             <Copy className="mr-2 h-4 w-4" /> Copy Id
           </DropdownMenuItem>
           <DropdownMenuItem
-            onClick={() => router.push(`/${params.storeId}/sizes/${size.id}`)}
+            onClick={() => router.push(`/${params.storeId}/colors/${color.id}`)}
           >
             <Edit className="mr-2 h-4 w-4" /> Update
           </DropdownMenuItem>
