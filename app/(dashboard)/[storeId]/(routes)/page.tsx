@@ -1,10 +1,10 @@
-import { prisma } from "@/lib/db";
+import { prisma } from '@/lib/db';
 
 type DashboardPageProps = {
   params: {
-    storeId: string
-  }
-}
+    storeId: string;
+  };
+};
 
 export default async function DashboardPage(props: DashboardPageProps) {
   const { params } = props;
@@ -15,7 +15,5 @@ export default async function DashboardPage(props: DashboardPageProps) {
     },
   });
 
-  return (
-    <p>Active Dashboard: {store?.name}</p>
-  );
+  return <p>Active Dashboard: {store?.name}</p>;
 }

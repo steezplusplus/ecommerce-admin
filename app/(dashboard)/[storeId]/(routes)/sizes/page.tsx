@@ -1,9 +1,8 @@
-import { format } from "date-fns";
+import { format } from 'date-fns';
 
-import { prisma } from "@/lib/db";
-import { SizeColumn } from "./components/columns";
-import { SizeClient } from "./components/client";
-
+import { prisma } from '@/lib/db';
+import { SizeColumn } from './components/columns';
+import { SizeClient } from './components/client';
 
 type SizesPageProps = {
   params: {
@@ -20,7 +19,7 @@ export default async function SizesPage(props: SizesPageProps) {
     },
     orderBy: {
       createdAt: 'desc',
-    }
+    },
   });
 
   const filteredSizes: SizeColumn[] = sizes.map((size) => ({
@@ -31,8 +30,8 @@ export default async function SizesPage(props: SizesPageProps) {
   }));
 
   return (
-    <div className="flex-col">
-      <div className="flex-1 space-y-4 p-8 pt-6">
+    <div className='flex-col'>
+      <div className='flex-1 space-y-4 p-8 pt-6'>
         <SizeClient sizes={filteredSizes} />
       </div>
     </div>

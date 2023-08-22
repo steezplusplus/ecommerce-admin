@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import * as z from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
-import { Trash } from "lucide-react";
-import { Color } from "@prisma/client";
-import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
-import axios from "axios";
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { Trash } from 'lucide-react';
+import { Color } from '@prisma/client';
+import { useParams, useRouter } from 'next/navigation';
+import { useState } from 'react';
+import axios from 'axios';
 
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Heading } from "@/components/ui/heading";
-import { AlertModal } from "@/components/modals/alert-modal";
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Heading } from '@/components/ui/heading';
+import { AlertModal } from '@/components/modals/alert-modal';
 import {
   Form,
   FormControl,
@@ -22,17 +22,20 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from '@/components/ui/form';
 
 const formSchema = z.object({
   name: z.string().min(1),
-  value: z.string().min(4).regex(/^#/, { message: 'String must be a valid hex code' }),
+  value: z
+    .string()
+    .min(4)
+    .regex(/^#/, { message: 'String must be a valid hex code' }),
 });
 
-type ColorFormValues = z.infer<typeof formSchema>
+type ColorFormValues = z.infer<typeof formSchema>;
 
 type ColorFormProps = {
-  initialData: Color | null,
+  initialData: Color | null;
 };
 
 const fallbackInitialData = {
@@ -48,10 +51,12 @@ export function ColorForm(props: ColorFormProps) {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const title = initialData ? "Edit color" : "Create color";
-  const description = initialData ? "Edit your existing color" : "Add a new color";
-  const toastMessage = initialData ? "Color updated" : "Color created";
-  const action = initialData ? "Update" : "Create";
+  const title = initialData ? 'Edit color' : 'Create color';
+  const description = initialData
+    ? 'Edit your existing color'
+    : 'Add a new color';
+  const toastMessage = initialData ? 'Color updated' : 'Color created';
+  const action = initialData ? 'Update' : 'Create';
 
   const form = useForm<ColorFormValues>({
     resolver: zodResolver(formSchema),
@@ -62,7 +67,10 @@ export function ColorForm(props: ColorFormProps) {
     try {
       setLoading(true);
       if (initialData) {
-        await axios.patch(`/api/${params.storeId}/colors/${params.colorId}`, data);
+        await axios.patch(
+          `/api/${params.storeId}/colors/${params.colorId}`,
+          data
+        );
       } else {
         await axios.post(`/api/${params.storeId}/colors`, data);
       }
@@ -99,26 +107,29 @@ export function ColorForm(props: ColorFormProps) {
         onConfirm={onDelete}
         loading={loading}
       />
-      <div className="flex items-center justify-between">
+      <div className='flex items-center justify-between'>
         <Heading title={title} description={description} />
         {initialData && (
           <Button
             disabled={loading}
-            variant="destructive"
-            size="sm"
+            variant='destructive'
+            size='sm'
             onClick={() => setOpen(true)}
           >
-            <Trash className="h-4 w-4" />
+            <Trash className='h-4 w-4' />
           </Button>
         )}
       </div>
       <Separator />
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
-          <div className="grid grid-cols-3 gap-8">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className='w-full space-y-8'
+        >
+          <div className='grid grid-cols-3 gap-8'>
             <FormField
               control={form.control}
-              name="name"
+              name='name'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Name</FormLabel>
@@ -131,14 +142,17 @@ export function ColorForm(props: ColorFormProps) {
             />
             <FormField
               control={form.control}
-              name="value"
+              name='value'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Value</FormLabel>
                   <FormControl>
-                    <div className="flex items-center gap-x-4">
+                    <div className='flex items-center gap-x-4'>
                       <Input disabled={loading} {...field} />
-                      <div className="border p-4 rounded-full" style={{ backgroundColor: field.value }} />
+                      <div
+                        className='rounded-full border p-4'
+                        style={{ backgroundColor: field.value }}
+                      />
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -146,11 +160,11 @@ export function ColorForm(props: ColorFormProps) {
               )}
             />
           </div>
-          <Button disabled={loading} className="ml-auto" type="submit">
+          <Button disabled={loading} className='ml-auto' type='submit'>
             {action}
           </Button>
         </form>
       </Form>
     </>
   );
-};
+}

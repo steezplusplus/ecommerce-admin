@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from 'react';
 
@@ -16,7 +16,5 @@ export function ModalProvider() {
     return null;
   }
 
-  return (
-    <StoreModal />
-  );
+  return <StoreModal />;
 }

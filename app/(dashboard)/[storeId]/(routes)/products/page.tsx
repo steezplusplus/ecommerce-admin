@@ -1,22 +1,22 @@
-import { format } from "date-fns";
+import { format } from 'date-fns';
 
-import { prisma } from "@/lib/db";
-import type { ProductColumn } from "./components/columns";
-import { ProductClient } from "./components/product-client";
-import { priceFormatter } from "@/lib/utils";
+import { prisma } from '@/lib/db';
+import type { ProductColumn } from './components/columns';
+import { ProductClient } from './components/product-client';
+import { priceFormatter } from '@/lib/utils';
 
 type ProductsPageProps = {
   params: {
     storeId: string;
-  }
-}
+  };
+};
 
 export default async function ProductsPage(props: ProductsPageProps) {
   const { params } = props;
 
   const products = await prisma.product.findMany({
     where: {
-      storeId: params.storeId
+      storeId: params.storeId,
     },
     include: {
       category: true,
@@ -25,7 +25,7 @@ export default async function ProductsPage(props: ProductsPageProps) {
     },
     orderBy: {
       createdAt: 'desc',
-    }
+    },
   });
 
   const formattedProducts: ProductColumn[] = products.map((product) => ({
@@ -41,8 +41,8 @@ export default async function ProductsPage(props: ProductsPageProps) {
   }));
 
   return (
-    <div className="flex-col">
-      <div className="flex-1 space-y-4 p-8 pt-6">
+    <div className='flex-col'>
+      <div className='flex-1 space-y-4 p-8 pt-6'>
         <ProductClient products={formattedProducts} />
       </div>
     </div>

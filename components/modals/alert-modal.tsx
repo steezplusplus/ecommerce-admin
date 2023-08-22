@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { Modal } from "@/components/ui/modal";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from 'react';
+import { Modal } from '@/components/ui/modal';
+import { Button } from '@/components/ui/button';
 
 type AlertModalProps = {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
   loading: boolean;
-}
+};
 
 export function AlertModal(props: AlertModalProps) {
   const { isOpen, onClose, onConfirm, loading } = props;
@@ -24,24 +24,16 @@ export function AlertModal(props: AlertModalProps) {
 
   return (
     <Modal
-      title="Are you sure?"
-      description="This action cannot be undone."
+      title='Are you sure?'
+      description='This action cannot be undone.'
       isOpen={isOpen}
       onClose={onClose}
     >
-      <div className="flex justify-between items-center">
-        <Button
-          variant="outline"
-          disabled={loading}
-          onClick={onClose}
-        >
+      <div className='flex items-center justify-between'>
+        <Button variant='outline' disabled={loading} onClick={onClose}>
           Cancel
         </Button>
-        <Button
-          variant="destructive"
-          disabled={loading}
-          onClick={onConfirm}
-        >
+        <Button variant='destructive' disabled={loading} onClick={onConfirm}>
           Confirm
         </Button>
       </div>

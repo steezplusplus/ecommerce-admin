@@ -1,13 +1,13 @@
-import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs";
+import { redirect } from 'next/navigation';
+import { auth } from '@clerk/nextjs';
 
-import { prisma } from "@/lib/db";
-import { SettingsForm } from "./components/settings-form";
+import { prisma } from '@/lib/db';
+import { SettingsForm } from './components/settings-form';
 
 type SettingsPageProps = {
   params: {
-    storeId: string
-  },
+    storeId: string;
+  };
 };
 
 export default async function SettingsPage(props: SettingsPageProps) {
@@ -29,10 +29,9 @@ export default async function SettingsPage(props: SettingsPageProps) {
     redirect('/');
   }
 
-
   return (
-    <div className="flex flex-col">
-      <div className="flex-1 space-y-4 px-8 pb-8 pt-6">
+    <div className='flex flex-col'>
+      <div className='flex-1 space-y-4 px-8 pb-8 pt-6'>
         <SettingsForm initialData={store} />
       </div>
     </div>

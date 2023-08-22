@@ -1,8 +1,11 @@
-import { NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs";
-import { prisma } from "@/lib/db";
+import { NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs';
+import { prisma } from '@/lib/db';
 
-export async function POST(req: Request, { params }: { params: { storeId: string } }) {
+export async function POST(
+  req: Request,
+  { params }: { params: { storeId: string } }
+) {
   try {
     const { userId } = auth();
 
@@ -25,7 +28,7 @@ export async function POST(req: Request, { params }: { params: { storeId: string
       return new NextResponse('Store id is required', { status: 400 });
     }
 
-    // Check that the storeId corresponds to the user 
+    // Check that the storeId corresponds to the user
     const storeByUserId = await prisma.store.findFirst({
       where: {
         id: params.storeId,
@@ -53,9 +56,11 @@ export async function POST(req: Request, { params }: { params: { storeId: string
   }
 }
 
-export async function GET(req: Request, { params }: { params: { storeId: string } }) {
+export async function GET(
+  req: Request,
+  { params }: { params: { storeId: string } }
+) {
   try {
-
     if (!params.storeId) {
       return new NextResponse('Store id is required', { status: 400 });
     }

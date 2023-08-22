@@ -1,15 +1,15 @@
-import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs";
+import { redirect } from 'next/navigation';
+import { auth } from '@clerk/nextjs';
 
-import { prisma } from "@/lib/db";
-import { Nav } from "./components/nav";
+import { prisma } from '@/lib/db';
+import { Nav } from './components/nav';
 
 type DashboardLayoutProps = {
   children: React.ReactNode;
   params: {
-    storeId: string
+    storeId: string;
   };
-}
+};
 
 export default async function DashboardLayout(props: DashboardLayoutProps) {
   const { children, params } = props;
@@ -33,9 +33,7 @@ export default async function DashboardLayout(props: DashboardLayoutProps) {
   return (
     <>
       <Nav />
-      <main className="p-2">
-        {children}
-      </main>
+      <main className='p-2'>{children}</main>
     </>
   );
 }

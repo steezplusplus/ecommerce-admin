@@ -1,11 +1,11 @@
-import { prisma } from "@/lib/db";
-import { SizeForm } from "./components/size-form";
+import { prisma } from '@/lib/db';
+import { SizeForm } from './components/size-form';
 
 type SizePageProps = {
   params: {
     storeId: string;
-    sizeId: string
-  },
+    sizeId: string;
+  };
 };
 
 export default async function SizePage(props: SizePageProps) {
@@ -18,8 +18,8 @@ export default async function SizePage(props: SizePageProps) {
   });
 
   return (
-    <div className="flex flex-col">
-      <div className="flex-1 space-y-4 px-8 py-6">
+    <div className='flex flex-col'>
+      <div className='flex-1 space-y-4 px-8 py-6'>
         <SizeForm initialData={size} />
       </div>
     </div>

@@ -1,11 +1,11 @@
-import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs";
+import { redirect } from 'next/navigation';
+import { auth } from '@clerk/nextjs';
 
-import { prisma } from "@/lib/db";
+import { prisma } from '@/lib/db';
 
 type SetupLayoutProps = {
   children: React.ReactNode;
-}
+};
 
 export default async function SetupLayout(props: SetupLayoutProps) {
   const { children } = props;
@@ -26,9 +26,5 @@ export default async function SetupLayout(props: SetupLayoutProps) {
     redirect(`/${store.id}`);
   }
 
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

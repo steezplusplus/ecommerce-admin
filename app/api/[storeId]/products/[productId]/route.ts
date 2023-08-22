@@ -1,12 +1,14 @@
-import { NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs";
-import { prisma } from "@/lib/db";
+import { NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs';
+import { prisma } from '@/lib/db';
 
-export async function GET(req: Request, { params }: { params: { productId: string } }) {
+export async function GET(
+  req: Request,
+  { params }: { params: { productId: string } }
+) {
   try {
-
     if (!params.productId) {
-      return new NextResponse("Product id is required", { status: 400 });
+      return new NextResponse('Product id is required', { status: 400 });
     }
 
     const product = await prisma.product.findUnique({
@@ -18,17 +20,20 @@ export async function GET(req: Request, { params }: { params: { productId: strin
         category: true,
         color: true,
         size: true,
-      }
+      },
     });
 
     return NextResponse.json(product);
   } catch (error) {
     console.error('[PRODUCT_GET]', error);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse('Internal error', { status: 500 });
   }
-};
+}
 
-export async function PATCH(req: Request, { params }: { params: { storeId: string, productId: string } }) {
+export async function PATCH(
+  req: Request,
+  { params }: { params: { storeId: string; productId: string } }
+) {
   try {
     const { userId } = auth();
     const body = await req.json();
@@ -40,11 +45,11 @@ export async function PATCH(req: Request, { params }: { params: { storeId: strin
       sizeId,
       images,
       isFeatured,
-      isArchived
+      isArchived,
     } = body;
 
     if (!userId) {
-      return new NextResponse("Unauthenticated", { status: 401 });
+      return new NextResponse('Unauthenticated', { status: 401 });
     }
     if (!name) {
       return new NextResponse('Name is required', { status: 400 });
@@ -69,10 +74,10 @@ export async function PATCH(req: Request, { params }: { params: { storeId: strin
     }
 
     if (!params.productId) {
-      return new NextResponse("Product id is required", { status: 400 });
+      return new NextResponse('Product id is required', { status: 400 });
     }
 
-    // Check that the storeId corresponds to the user 
+    // Check that the storeId corresponds to the user
     const storeByUserId = await prisma.store.findFirst({
       where: {
         id: params.storeId,
@@ -111,9 +116,7 @@ export async function PATCH(req: Request, { params }: { params: { storeId: strin
       data: {
         images: {
           createMany: {
-            data: [
-              ...images.map((image: { url: string }) => image),
-            ],
+            data: [...images.map((image: { url: string }) => image)],
           },
         },
       },
@@ -122,23 +125,26 @@ export async function PATCH(req: Request, { params }: { params: { storeId: strin
     return NextResponse.json(product);
   } catch (error) {
     console.error('[PRODUCT_PATCH]', error);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse('Internal error', { status: 500 });
   }
-};
+}
 
-export async function DELETE(req: Request, { params }: { params: { storeId: string, productId: string } }) {
+export async function DELETE(
+  req: Request,
+  { params }: { params: { storeId: string; productId: string } }
+) {
   try {
     const { userId } = auth();
 
     if (!userId) {
-      return new NextResponse("Unauthenticated", { status: 401 });
+      return new NextResponse('Unauthenticated', { status: 401 });
     }
 
     if (!params.productId) {
-      return new NextResponse("Product id is required", { status: 400 });
+      return new NextResponse('Product id is required', { status: 400 });
     }
 
-    // Check that the storeId corresponds to the user 
+    // Check that the storeId corresponds to the user
     const storeByUserId = await prisma.store.findFirst({
       where: {
         id: params.storeId,
@@ -154,12 +160,12 @@ export async function DELETE(req: Request, { params }: { params: { storeId: stri
     const product = await prisma.product.deleteMany({
       where: {
         id: params.productId,
-      }
+      },
     });
 
     return NextResponse.json(product);
   } catch (error) {
     console.error('[PRODUCT_DELETE]', error);
-    return new NextResponse("Internal error", { status: 500 });
+    return new NextResponse('Internal error', { status: 500 });
   }
-};
+}

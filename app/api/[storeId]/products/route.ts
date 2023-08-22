@@ -1,8 +1,11 @@
-import { NextResponse } from "next/server";
-import { auth } from "@clerk/nextjs";
-import { prisma } from "@/lib/db";
+import { NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs';
+import { prisma } from '@/lib/db';
 
-export async function POST(req: Request, { params }: { params: { storeId: string } }) {
+export async function POST(
+  req: Request,
+  { params }: { params: { storeId: string } }
+) {
   try {
     const { userId } = auth();
 
@@ -15,7 +18,7 @@ export async function POST(req: Request, { params }: { params: { storeId: string
       sizeId,
       images,
       isFeatured,
-      isArchived
+      isArchived,
     } = body;
 
     if (!userId) {
@@ -48,7 +51,7 @@ export async function POST(req: Request, { params }: { params: { storeId: string
       return new NextResponse('Store id is required', { status: 400 });
     }
 
-    // Check that the storeId corresponds to the user 
+    // Check that the storeId corresponds to the user
     const storeByUserId = await prisma.store.findFirst({
       where: {
         id: params.storeId,
@@ -67,9 +70,7 @@ export async function POST(req: Request, { params }: { params: { storeId: string
         price,
         images: {
           createMany: {
-            data: [
-              ...images.map((image: { url: string }) => image)
-            ],
+            data: [...images.map((image: { url: string }) => image)],
           },
         },
         categoryId,
@@ -88,13 +89,16 @@ export async function POST(req: Request, { params }: { params: { storeId: string
   }
 }
 
-export async function GET(req: Request, { params }: { params: { storeId: string } }) {
+export async function GET(
+  req: Request,
+  { params }: { params: { storeId: string } }
+) {
   try {
     const { searchParams } = new URL(req.url);
-    const categoryId = searchParams.get("categoryId") || undefined;
-    const colorId = searchParams.get("colorId") || undefined;
-    const sizeId = searchParams.get("sizeId") || undefined;
-    const isFeatured = searchParams.get("IsFeatured") || undefined;
+    const categoryId = searchParams.get('categoryId') || undefined;
+    const colorId = searchParams.get('colorId') || undefined;
+    const sizeId = searchParams.get('sizeId') || undefined;
+    const isFeatured = searchParams.get('IsFeatured') || undefined;
 
     if (!params.storeId) {
       return new NextResponse('Store id is required', { status: 400 });
@@ -116,7 +120,7 @@ export async function GET(req: Request, { params }: { params: { storeId: string 
         size: true,
       },
       orderBy: {
-        createdAt: "asc"
+        createdAt: 'asc',
       },
     });
 

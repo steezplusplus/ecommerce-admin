@@ -1,22 +1,22 @@
-"use client";
+'use client';
 
-import * as z from "zod";
-import axios from "axios";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
-import { Trash } from "lucide-react";
-import { Store } from "@prisma/client";
-import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import * as z from 'zod';
+import axios from 'axios';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { Trash } from 'lucide-react';
+import { Store } from '@prisma/client';
+import { useParams, useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-import { useOrigin } from "@/hooks/use-origin";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Heading } from "@/components/ui/heading";
-import { AlertModal } from "@/components/modals/alert-modal";
-import { CopyPasta } from "@/components/ui/copy-pasta";
+import { useOrigin } from '@/hooks/use-origin';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Heading } from '@/components/ui/heading';
+import { AlertModal } from '@/components/modals/alert-modal';
+import { CopyPasta } from '@/components/ui/copy-pasta';
 import {
   Form,
   FormControl,
@@ -24,14 +24,13 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-
+} from '@/components/ui/form';
 
 const formSchema = z.object({
   name: z.string().min(1),
 });
 
-type SettingsFormValues = z.infer<typeof formSchema>
+type SettingsFormValues = z.infer<typeof formSchema>;
 
 type SettingsFormProps = {
   initialData: Store;
@@ -49,7 +48,7 @@ export function SettingsForm(props: SettingsFormProps) {
 
   const form = useForm<SettingsFormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData
+    defaultValues: initialData,
   });
 
   const onSubmit = async (data: SettingsFormValues) => {
@@ -88,46 +87,56 @@ export function SettingsForm(props: SettingsFormProps) {
         onConfirm={onDelete}
         loading={loading}
       />
-      <div className="flex items-center justify-between">
-        <Heading title="Store settings" description="Manage store preferences" />
+      <div className='flex items-center justify-between'>
+        <Heading
+          title='Store settings'
+          description='Manage store preferences'
+        />
         <Button
           disabled={loading}
-          variant="destructive"
-          size="sm"
+          variant='destructive'
+          size='sm'
           onClick={() => setOpen(true)}
         >
-          <Trash className="h-4 w-4" />
+          <Trash className='h-4 w-4' />
         </Button>
       </div>
       <Separator />
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
-          <div className="grid grid-cols-3 gap-8">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className='w-full space-y-8'
+        >
+          <div className='grid grid-cols-3 gap-8'>
             <FormField
               control={form.control}
-              name="name"
+              name='name'
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input disabled={loading} placeholder="Store name" {...field} />
+                    <Input
+                      disabled={loading}
+                      placeholder='Store name'
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
-          <Button disabled={loading} className="ml-auto" type="submit">
+          <Button disabled={loading} className='ml-auto' type='submit'>
             Save changes
           </Button>
         </form>
       </Form>
       <Separator />
       <CopyPasta
-        title="NEXT_PUBLIC_API_URL"
+        title='NEXT_PUBLIC_API_URL'
         description={`${origin}/api/${params.storeId}`}
-        variant="public"
+        variant='public'
       />
     </>
   );
-};
+}

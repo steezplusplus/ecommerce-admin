@@ -2,11 +2,11 @@
  * Allows user to upload images and view them
  */
 
-"use client";
+'use client';
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { CldUploadWidget } from "next-cloudinary";
+import { CldUploadWidget } from 'next-cloudinary';
 import { Trash, ImagePlus } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -30,7 +30,7 @@ export function ImageUpload(props: ImageUploadProps) {
     setIsMounted(true);
   }, []);
 
-  // Dont render until SSR completes, avoid hydration issues 
+  // Dont render until SSR completes, avoid hydration issues
   if (!isMounted) {
     return null;
   }
@@ -42,27 +42,29 @@ export function ImageUpload(props: ImageUploadProps) {
           return (
             <div
               key={`${imageUrl}-${i}`}
-              className="relative w-48 h-48 rounded-md overflow-hidden"
+              className='relative h-48 w-48 overflow-hidden rounded-md'
             >
-              <div className="z-10 absolute top-2 right-2">
+              <div className='absolute right-2 top-2 z-10'>
                 <Button
-                  type="button"
-                  variant="destructive"
-                  size="icon"
+                  type='button'
+                  variant='destructive'
+                  size='icon'
                   onClick={() => onRemove(imageUrl)}
                 >
-                  <Trash className="h-4 w-4" />
+                  <Trash className='h-4 w-4' />
                 </Button>
               </div>
-              <Image fill className="object-cover border rounded-md" alt="image" src={imageUrl} />
+              <Image
+                fill
+                className='rounded-md border object-cover'
+                alt='image'
+                src={imageUrl}
+              />
             </div>
           );
         })}
       </div>
-      <CldUploadWidget
-        onUpload={onUpload}
-        uploadPreset='qpvhxuqw'
-      >
+      <CldUploadWidget onUpload={onUpload} uploadPreset='qpvhxuqw'>
         {({ open }) => {
           const onClick = () => {
             open();
@@ -70,17 +72,17 @@ export function ImageUpload(props: ImageUploadProps) {
 
           return (
             <Button
-              type="button"
+              type='button'
               disabled={disabled}
-              variant="secondary"
+              variant='secondary'
               onClick={onClick}
             >
-              <ImagePlus className="h-4 w-4 mr-2" />
+              <ImagePlus className='mr-2 h-4 w-4' />
               Upload an image
             </Button>
           );
         }}
       </CldUploadWidget>
-    </div >
+    </div>
   );
 }

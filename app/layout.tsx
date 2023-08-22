@@ -17,11 +17,11 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang='en'>
         <body className={inter.className}>
           <ToasterProvider />
           <ModalProvider />

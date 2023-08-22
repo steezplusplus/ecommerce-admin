@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useParams, usePathname } from "next/navigation";
-import Link from "next/link";
+import { useParams, usePathname } from 'next/navigation';
+import Link from 'next/link';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 type NavLinksProps = {
-  className: string,
+  className: string;
 };
 
 export function NavLinks(props: NavLinksProps) {
@@ -64,8 +64,12 @@ export function NavLinks(props: NavLinksProps) {
           <li key={route.href}>
             <Link
               href={route.href}
-              className={cn('text-sm font-medium transition-colors hover:text-primary',
-                route.active ? "text-black dark:text-white" : "text-muted-foreground")}
+              className={cn(
+                'text-sm font-medium transition-colors hover:text-primary',
+                route.active
+                  ? 'text-black dark:text-white'
+                  : 'text-muted-foreground'
+              )}
             >
               {route.label}
             </Link>

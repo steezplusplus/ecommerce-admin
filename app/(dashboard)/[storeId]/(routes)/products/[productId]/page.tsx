@@ -1,17 +1,17 @@
 /**
- * Searches for a billboard based on route params. 
+ * Searches for a billboard based on route params.
  * If billboard is found, the user can update or delete it.
  * If not, the user can create a new new billboard.
  */
 
-import { prisma } from "@/lib/db";
-import { ProductForm } from "./components/product-form";
+import { prisma } from '@/lib/db';
+import { ProductForm } from './components/product-form';
 
 type ProductPageProps = {
   params: {
     storeId: string;
-    productId: string
-  },
+    productId: string;
+  };
 };
 
 export default async function ProductPage(props: ProductPageProps) {
@@ -45,9 +45,14 @@ export default async function ProductPage(props: ProductPageProps) {
   });
 
   return (
-    <div className="flex flex-col">
-      <div className="flex-1 space-y-4 px-8 py-6">
-        <ProductForm initialData={product} categories={categories} sizes={sizes} colors={colors} />
+    <div className='flex flex-col'>
+      <div className='flex-1 space-y-4 px-8 py-6'>
+        <ProductForm
+          initialData={product}
+          categories={categories}
+          sizes={sizes}
+          colors={colors}
+        />
       </div>
     </div>
   );

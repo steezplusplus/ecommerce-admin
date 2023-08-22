@@ -1,8 +1,8 @@
-import { format } from "date-fns";
+import { format } from 'date-fns';
 
-import { prisma } from "@/lib/db";
-import { CategoryColumn } from "./components/columns";
-import { CategoryClient } from "./components/client";
+import { prisma } from '@/lib/db';
+import { CategoryColumn } from './components/columns';
+import { CategoryClient } from './components/client';
 
 type CategoriesPageProps = {
   params: {
@@ -15,14 +15,14 @@ export default async function CategoriesPage(props: CategoriesPageProps) {
 
   const categories = await prisma.category.findMany({
     where: {
-      storeId: params.storeId
+      storeId: params.storeId,
     },
     include: {
       billboard: true,
     },
     orderBy: {
       createdAt: 'desc',
-    }
+    },
   });
 
   const formattedCategories: CategoryColumn[] = categories.map((category) => ({
@@ -33,8 +33,8 @@ export default async function CategoriesPage(props: CategoriesPageProps) {
   }));
 
   return (
-    <div className="flex-col">
-      <div className="flex-1 space-y-4 p-8 pt-6">
+    <div className='flex-col'>
+      <div className='flex-1 space-y-4 p-8 pt-6'>
         <CategoryClient categories={formattedCategories} />
       </div>
     </div>

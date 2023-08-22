@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
-  DialogTitle
-} from "@/components/ui/dialog";
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 type ModalProps = {
   title: string;
@@ -32,9 +32,7 @@ export function Modal(props: ModalProps) {
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
-        <div>
-          {children}
-        </div>
+        <div>{children}</div>
       </DialogContent>
     </Dialog>
   );

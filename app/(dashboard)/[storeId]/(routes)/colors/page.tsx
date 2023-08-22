@@ -1,9 +1,8 @@
-import { format } from "date-fns";
+import { format } from 'date-fns';
 
-import { prisma } from "@/lib/db";
-import { ColorColumn } from "./components/columns";
-import { ColorClient } from "./components/client";
-
+import { prisma } from '@/lib/db';
+import { ColorColumn } from './components/columns';
+import { ColorClient } from './components/client';
 
 type ColorsPageProps = {
   params: {
@@ -20,7 +19,7 @@ export default async function ColorsPage(props: ColorsPageProps) {
     },
     orderBy: {
       createdAt: 'desc',
-    }
+    },
   });
 
   const filteredColors: ColorColumn[] = colors.map((color) => ({
@@ -31,8 +30,8 @@ export default async function ColorsPage(props: ColorsPageProps) {
   }));
 
   return (
-    <div className="flex-col">
-      <div className="flex-1 space-y-4 p-8 pt-6">
+    <div className='flex-col'>
+      <div className='flex-1 space-y-4 p-8 pt-6'>
         <ColorClient colors={filteredColors} />
       </div>
     </div>

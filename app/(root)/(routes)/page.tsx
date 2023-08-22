@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import { useStoreModal } from "@/hooks/use-store-modal";
+import { useStoreModal } from '@/hooks/use-store-modal';
 
 export default function SetupPage() {
   const isOpen = useStoreModal((state) => state.isOpen);
@@ -14,5 +14,7 @@ export default function SetupPage() {
     }
   }, [isOpen, onOpen]);
 
-  return <div className="h-screen w-screen bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500" />;
+  return (
+    <div className='h-screen w-screen bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500' />
+  );
 }
