@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 import { prisma } from "@/lib/db";
-import type { ProductColumn } from "./components/columns"
+import type { ProductColumn } from "./components/columns";
 import { ProductClient } from "./components/product-client";
 import { priceFormatter } from "@/lib/utils";
 

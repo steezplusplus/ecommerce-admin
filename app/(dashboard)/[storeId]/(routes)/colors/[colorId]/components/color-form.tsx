@@ -89,7 +89,7 @@ export function ColorForm(props: ColorFormProps) {
       setLoading(false);
       setOpen(false);
     }
-  }
+  };
 
   return (
     <>

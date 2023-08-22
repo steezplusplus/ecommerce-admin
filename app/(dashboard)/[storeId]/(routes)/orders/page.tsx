@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 import { prisma } from "@/lib/db";
-import type { OrderColumn } from "./components/columns"
+import type { OrderColumn } from "./components/columns";
 import { OrderClient } from "./components/order-client";
 import { priceFormatter } from "@/lib/utils";
 
@@ -36,7 +36,7 @@ export default async function OrdersPage(props: OrdersPageProps) {
     address: order.address,
     products: order.orderItems.map((orderItem) => orderItem.product.name).join(' '),
     totalPrice: priceFormatter().format(order.orderItems.reduce((total, orderItem) => {
-      return total + Number(orderItem.product.price)
+      return total + Number(orderItem.product.price);
     }, 0)),
     isPaid: order.isPaid,
     createdAt: format(order.createdAt, 'MMMM do, yyyy'),

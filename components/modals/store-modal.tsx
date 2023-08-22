@@ -40,7 +40,7 @@ export function StoreModal() {
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return (
     <Modal

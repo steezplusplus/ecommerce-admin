@@ -90,7 +90,7 @@ export function SizeForm(props: SizeFormProps) {
       setLoading(false);
       setOpen(false);
     }
-  }
+  };
 
   return (
     <>

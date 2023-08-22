@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ChevronsUpDown, PlusCircle, Store } from "lucide-react"
+import { Check, ChevronsUpDown, PlusCircle, Store } from "lucide-react";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Command,
   CommandEmpty,
@@ -13,14 +13,14 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/components/ui/command"
+} from "@/components/ui/command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { useStoreModal } from "@/hooks/use-store-modal"
-import { useParams, useRouter } from "next/navigation"
+} from "@/components/ui/popover";
+import { useStoreModal } from "@/hooks/use-store-modal";
+import { useParams, useRouter } from "next/navigation";
 
 type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
 
@@ -48,7 +48,7 @@ export function StoreSwitcher(props: StoreSwitcherProps) {
 
   function onSelectStore(store: Store) {
     setOpen(false);
-    router.push(`/${store.id}`)
+    router.push(`/${store.id}`);
   }
 
   return (

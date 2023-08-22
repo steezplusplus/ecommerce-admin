@@ -24,7 +24,7 @@ export function ImageUpload(props: ImageUploadProps) {
 
   const onUpload = (results: any) => {
     onChange(results.info.secure_url);
-  }
+  };
 
   useEffect(() => {
     setIsMounted(true);
@@ -66,7 +66,7 @@ export function ImageUpload(props: ImageUploadProps) {
         {({ open }) => {
           const onClick = () => {
             open();
-          }
+          };
 
           return (
             <Button
@@ -78,7 +78,7 @@ export function ImageUpload(props: ImageUploadProps) {
               <ImagePlus className="h-4 w-4 mr-2" />
               Upload an image
             </Button>
-          )
+          );
         }}
       </CldUploadWidget>
     </div >

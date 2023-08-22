@@ -78,7 +78,7 @@ export function SettingsForm(props: SettingsFormProps) {
       setLoading(false);
       setOpen(false);
     }
-  }
+  };
 
   return (
     <>

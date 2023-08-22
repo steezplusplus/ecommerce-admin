@@ -89,7 +89,7 @@ export function BillboardForm(props: BillboardFormProps) {
       setLoading(false);
       setOpen(false);
     }
-  }
+  };
 
   return (
     <>

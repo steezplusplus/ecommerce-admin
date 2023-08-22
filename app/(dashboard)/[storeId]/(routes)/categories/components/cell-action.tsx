@@ -46,7 +46,7 @@ export function CellAction(props: CellActionProps) {
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
     toast.success('Category ID copied to clipboard.');
-  }
+  };
 
   return (
     <>
