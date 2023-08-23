@@ -20,7 +20,7 @@ export const columns: ColumnDef<BillboardColumn>[] = [
     header: 'Date',
   },
   {
-    accessorKey: 'actions',
+    accessorKey: 'Actions',
     cell: ({ row }) => <CellAction data={row.original} />,
   },
 ];
