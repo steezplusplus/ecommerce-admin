@@ -1,40 +1,39 @@
 # E-Commerce + Dashboard & CMS
 
-Manage multiple vendors through this single dashboard.
+* Manage multiple vendors operations through this single dashboard with unparalleled efficiency.
 
 ## Built with
 
-* NextJS 13 (app/ router)
-* Tailwind
-* Prisma
-* Postgres
-* Vercel
-* Cloudinary
-* Clerk
+* [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
+* [NextJS 13](https://nextjs.org/)
+* [Tailwind](https://tailwindcss.com/)
+* [Prisma](https://www.prisma.io/)
+* [Vercel](https://vercel.com/)
+* [Supabase](https://supabase.com/)
+* [Cloudinary](https://cloudinary.com/)
+* [Clerk](https://clerk.com/)
 
 ### Features
 
 * Passwordless signup
-* Friendly UI to support CRUD operations for
-  * Stores
-  * Billboards
-  * Categories
-  * Sizes
-  * Colors
-  * Products
+* Friendly html forms for creating, updating and deleting resources
 
 ### Database Schema
 
 TODO
 
 ### Setup
-1. Install Packages
-```sh
+1. Clone this project
+
+2. Install Packages
+
+```shell
 npm i
 ```
 
-2. Setup `.env`
-```
+3. Setup `.env`
+
+```shell
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
@@ -47,15 +46,25 @@ NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
 ```
 
 3. Prepare prisma
-```sh
+
+```shell
 npx prisma generate
 npx prisma db push
 ```
 
 4. Start the app
-```sh
+
+```shell
 npm run dev
 ```
+
+5. Create your store
+
+* Uploading resources with the dashboard
+* Use the API endpoints it generates to create your own frontend.
+* Or, view an exmaple frontend I've built here: [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
+
+
 #### Available commands
 
 | command         | description                              |
