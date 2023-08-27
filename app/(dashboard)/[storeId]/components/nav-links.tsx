@@ -46,11 +46,6 @@ export function NavLinks(props: NavLinksProps) {
       active: pathName.startsWith(`/${params.storeId}/products`),
     },
     {
-      label: 'Orders',
-      href: `/${params.storeId}/orders`,
-      active: pathName.startsWith(`/${params.storeId}/orders`),
-    },
-    {
       label: 'Settings',
       href: `/${params.storeId}/settings`,
       active: pathName.startsWith(`/${params.storeId}/settings`),
