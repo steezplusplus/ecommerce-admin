@@ -33,7 +33,7 @@ export function ProductClient(props: ProductsClientProps) {
         </Button>
       </div>
       <Separator />
-      <DataTable columns={columns} data={products} searchKey='label' />
+      <DataTable columns={columns} data={products} searchKey='name' />
       <Heading title='API' description="API's for products" />
       <CopyPastaList entityName='products' entityIdName='productId' />
     </>
