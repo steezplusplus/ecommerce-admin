@@ -19,7 +19,6 @@ export async function GET(
         images: true,
         category: true,
         color: true,
-        size: true,
       },
     });
 
@@ -42,7 +41,6 @@ export async function PATCH(
       price,
       categoryId,
       colorId,
-      sizeId,
       images,
       isFeatured,
       isArchived,
@@ -66,11 +64,9 @@ export async function PATCH(
     if (!categoryId) {
       return new NextResponse('Category id is required', { status: 400 });
     }
+
     if (!colorId) {
       return new NextResponse('Color id is required', { status: 400 });
-    }
-    if (!sizeId) {
-      return new NextResponse('Size id is required', { status: 400 });
     }
 
     if (!params.productId) {
@@ -102,7 +98,6 @@ export async function PATCH(
         },
         categoryId,
         colorId,
-        sizeId,
         isFeatured,
         isArchived,
         storeId: params.storeId,

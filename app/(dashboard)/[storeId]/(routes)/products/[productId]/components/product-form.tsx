@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Trash } from 'lucide-react';
-import { Product, Image, Category, Color, Size } from '@prisma/client';
+import { Product, Image, Category, Color } from '@prisma/client';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import axios from 'axios';
@@ -40,7 +40,6 @@ const formSchema = z.object({
   price: z.coerce.number().min(1),
   categoryId: z.string().min(1),
   colorId: z.string().min(1),
-  sizeId: z.string().min(1),
   isFeatured: z.boolean().default(false).optional(),
   isArchived: z.boolean().default(false).optional(),
 });
@@ -51,7 +50,6 @@ type ProductFormProps = {
   initialData: (Product & { images: Image[] }) | null;
   categories: Category[];
   colors: Color[];
-  sizes: Size[];
 };
 
 const fallbackInitialData = {
@@ -60,13 +58,12 @@ const fallbackInitialData = {
   price: 0,
   categoryId: '',
   colorId: '',
-  sizeId: '',
   isFeatured: false,
   isArchived: false,
 };
 
 export function ProductForm(props: ProductFormProps) {
-  const { initialData, categories, colors, sizes } = props;
+  const { initialData, categories, colors } = props;
   const params = useParams();
   const router = useRouter();
 
@@ -84,9 +81,9 @@ export function ProductForm(props: ProductFormProps) {
     resolver: zodResolver(formSchema),
     defaultValues: initialData
       ? {
-          ...initialData,
-          price: parseFloat(String(initialData?.price)), // TODO Annoying conversion of Prisma decimal to Javascript number lol. Is there a better way?
-        }
+        ...initialData,
+        price: parseFloat(String(initialData?.price)), // TODO Annoying conversion of Prisma decimal to Javascript number lol. Is there a better way?
+      }
       : fallbackInitialData,
   });
 
@@ -225,35 +222,6 @@ export function ProductForm(props: ProductFormProps) {
                       {categories.map((category) => (
                         <SelectItem key={category.id} value={category.id}>
                           {category.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='sizeId'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Size</FormLabel>
-                  <Select
-                    disabled={loading}
-                    onValueChange={field.onChange}
-                    value={field.value}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue defaultValue={field.value} />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {sizes.map((size) => (
-                        <SelectItem key={size.id} value={size.id}>
-                          {size.name}
                         </SelectItem>
                       ))}
                     </SelectContent>

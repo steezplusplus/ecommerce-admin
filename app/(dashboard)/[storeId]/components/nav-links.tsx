@@ -31,11 +31,6 @@ export function NavLinks(props: NavLinksProps) {
       active: pathName.startsWith(`/${params.storeId}/categories`),
     },
     {
-      label: 'Sizes',
-      href: `/${params.storeId}/sizes`,
-      active: pathName.startsWith(`/${params.storeId}/sizes`),
-    },
-    {
       label: 'Colors',
       href: `/${params.storeId}/colors`,
       active: pathName.startsWith(`/${params.storeId}/colors`),

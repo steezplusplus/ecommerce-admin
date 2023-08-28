@@ -32,12 +32,6 @@ export default async function ProductPage(props: ProductPageProps) {
     },
   });
 
-  const sizes = await prisma.size.findMany({
-    where: {
-      storeId: params.storeId,
-    },
-  });
-
   const colors = await prisma.color.findMany({
     where: {
       storeId: params.storeId,
@@ -50,7 +44,6 @@ export default async function ProductPage(props: ProductPageProps) {
         <ProductForm
           initialData={product}
           categories={categories}
-          sizes={sizes}
           colors={colors}
         />
       </div>

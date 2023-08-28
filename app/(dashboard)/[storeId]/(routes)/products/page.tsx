@@ -20,7 +20,6 @@ export default async function ProductsPage(props: ProductsPageProps) {
     },
     include: {
       category: true,
-      size: true,
       color: true,
     },
     orderBy: {
@@ -35,7 +34,6 @@ export default async function ProductsPage(props: ProductsPageProps) {
     isArchived: product.isArchived,
     price: priceFormatter().format(product.price.toNumber()),
     category: product.category.name,
-    size: product.size.name,
     color: product.color.value,
     createdAt: format(product.createdAt, 'MMMM do, yyyy'),
   }));
