@@ -250,7 +250,7 @@ export function ProductForm(props: ProductFormProps) {
                     <SelectContent>
                       {colors.map((color) => (
                         <SelectItem key={color.id} value={color.id}>
-                          {color.value}
+                          {color.value} {color.name}
                         </SelectItem>
                       ))}
                     </SelectContent>
