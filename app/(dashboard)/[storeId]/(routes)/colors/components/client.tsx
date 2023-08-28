@@ -24,7 +24,7 @@ export function ColorClient(props: ColorClientProps) {
     <>
       <div className='flex items-center justify-between'>
         <Heading
-          title={`Clients (${colors.length})`}
+          title={`Colors (${colors.length})`}
           description='Manage colors for your store'
         />
         <Button onClick={() => router.push(`/${params.storeId}/colors/new`)}>
