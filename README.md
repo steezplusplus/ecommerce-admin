@@ -1,28 +1,29 @@
 # E-Commerce + Dashboard & CMS
 
-* Manage multiple vendors operations through this single dashboard with unparalleled efficiency.
+- Manage multiple vendors operations through this single dashboard with unparalleled efficiency.
 
 ## Built with
 
-* [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
-* [NextJS 13](https://nextjs.org/)
-* [Tailwind](https://tailwindcss.com/)
-* [Prisma](https://www.prisma.io/)
-* [Vercel](https://vercel.com/)
-* [Supabase](https://supabase.com/)
-* [Cloudinary](https://cloudinary.com/)
-* [Clerk](https://clerk.com/)
+- [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
+- [NextJS 13](https://nextjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Prisma](https://www.prisma.io/)
+- [Vercel](https://vercel.com/)
+- [Supabase](https://supabase.com/)
+- [Cloudinary](https://cloudinary.com/)
+- [Clerk](https://clerk.com/)
 
 ### Features
 
-* Passwordless signup
-* Friendly html forms for creating, updating and deleting resources
+- Passwordless signup
+- Friendly html forms for creating, updating and deleting resources
 
 ### Database Schema
 
 TODO
 
 ### Setup
+
 1. Clone this project
 
 2. Install Packages
@@ -60,13 +61,16 @@ npm run dev
 
 5. Create your store
 
-* Uploading resources with the dashboard
-* Use the API endpoints it generates to create your own frontend.
-* Or, view an exmaple frontend I've built here: [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
-
+- Uploading resources with the dashboard
+- Use the API endpoints it generates to create your own frontend.
+- Or, view an exmaple frontend I've built here: [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
 
 #### Available commands
 
-| command         | description                              |
-| :-------------- | :--------------------------------------- |
-| `dev`           | Starts a development instance of the app |
+| command | description                              |
+| :------ | :--------------------------------------- |
+| `dev`   | Starts a development instance of the app |
+
+### MIT License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
