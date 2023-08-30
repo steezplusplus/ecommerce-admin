@@ -50,18 +50,18 @@ export function StoreModal() {
 
   return (
     <Modal
-      title='Create a store'
-      description='A store is used to manage your products.'
+      title="Create a store"
+      description="A store is used to manage your products."
       isOpen={storeModal.isOpen}
       onClose={storeModal.onClose}
     >
       <div>
-        <div className='space-y-4 py-2 pb-4'>
+        <div className="space-y-4 py-2 pb-4">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <FormField
                 control={form.control}
-                name='name'
+                name="name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Name your store</FormLabel>
@@ -72,15 +72,15 @@ export function StoreModal() {
                   </FormItem>
                 )}
               />
-              <div className='flex items-center justify-end space-x-2 pt-6'>
+              <div className="flex items-center justify-end space-x-2 pt-6">
                 <Button
-                  variant='outline'
+                  variant="outline"
                   onClick={storeModal.onClose}
                   disabled={loading}
                 >
                   Cancel
                 </Button>
-                <Button type='submit' disabled={loading}>
+                <Button type="submit" disabled={loading}>
                   Continue
                 </Button>
               </div>

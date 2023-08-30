@@ -87,37 +87,37 @@ export function SettingsForm(props: SettingsFormProps) {
         onConfirm={onDelete}
         loading={loading}
       />
-      <div className='flex items-center justify-between'>
+      <div className="flex items-center justify-between">
         <Heading
-          title='Store settings'
-          description='Manage store preferences'
+          title="Store settings"
+          description="Manage store preferences"
         />
         <Button
           disabled={loading}
-          variant='destructive'
-          size='sm'
+          variant="destructive"
+          size="sm"
           onClick={() => setOpen(true)}
         >
-          <Trash className='h-4 w-4' />
+          <Trash className="h-4 w-4" />
         </Button>
       </div>
       <Separator />
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='w-full space-y-8'
+          className="w-full space-y-8"
         >
-          <div className='grid grid-cols-3 gap-8'>
+          <div className="grid grid-cols-3 gap-8">
             <FormField
               control={form.control}
-              name='name'
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder='Store name'
+                      placeholder="Store name"
                       {...field}
                     />
                   </FormControl>
@@ -126,16 +126,16 @@ export function SettingsForm(props: SettingsFormProps) {
               )}
             />
           </div>
-          <Button disabled={loading} className='ml-auto' type='submit'>
+          <Button disabled={loading} className="ml-auto" type="submit">
             Save changes
           </Button>
         </form>
       </Form>
       <Separator />
       <CopyPasta
-        title='NEXT_PUBLIC_API_URL'
+        title="NEXT_PUBLIC_API_URL"
         description={`${origin}/api/${params.storeId}`}
-        variant='public'
+        variant="public"
       />
     </>
   );

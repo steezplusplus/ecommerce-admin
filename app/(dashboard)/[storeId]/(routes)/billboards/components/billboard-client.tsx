@@ -22,22 +22,22 @@ export function BillboardClient(props: BillboardClientProps) {
 
   return (
     <>
-      <div className='flex items-center justify-between'>
+      <div className="flex items-center justify-between">
         <Heading
           title={`Billboards (${billboards.length})`}
-          description='Manage billboards for your store'
+          description="Manage billboards for your store"
         />
         <Button
           onClick={() => router.push(`/${params.storeId}/billboards/new`)}
         >
-          <Plus className='mr-2 h-4 w-4' />
+          <Plus className="mr-2 h-4 w-4" />
           Add new
         </Button>
       </div>
       <Separator />
-      <DataTable columns={columns} data={billboards} searchKey='label' />
-      <Heading title='API' description="API's for billboards" />
-      <CopyPastaList entityName='billboards' entityIdName='billboardId' />
+      <DataTable columns={columns} data={billboards} searchKey="label" />
+      <Heading title="API" description="API's for billboards" />
+      <CopyPastaList entityName="billboards" entityIdName="billboardId" />
     </>
   );
 }

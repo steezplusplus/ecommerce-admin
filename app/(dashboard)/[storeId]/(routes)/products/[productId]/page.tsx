@@ -39,8 +39,8 @@ export default async function ProductPage(props: ProductPageProps) {
   });
 
   return (
-    <div className='flex flex-col'>
-      <div className='flex-1 space-y-4 px-8 py-6'>
+    <div className="flex flex-col">
+      <div className="flex-1 space-y-4 px-8 py-6">
         <ProductForm
           initialData={product}
           categories={categories}

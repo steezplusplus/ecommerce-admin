@@ -81,9 +81,9 @@ export function ProductForm(props: ProductFormProps) {
     resolver: zodResolver(formSchema),
     defaultValues: initialData
       ? {
-        ...initialData,
-        price: parseFloat(String(initialData?.price)), // TODO Annoying conversion of Prisma decimal to Javascript number lol. Is there a better way?
-      }
+          ...initialData,
+          price: parseFloat(String(initialData?.price)), // TODO Annoying conversion of Prisma decimal to Javascript number lol. Is there a better way?
+        }
       : fallbackInitialData,
   });
 
@@ -131,16 +131,16 @@ export function ProductForm(props: ProductFormProps) {
         onConfirm={onDelete}
         loading={loading}
       />
-      <div className='flex items-center justify-between'>
+      <div className="flex items-center justify-between">
         <Heading title={title} description={description} />
         {initialData && (
           <Button
             disabled={loading}
-            variant='destructive'
-            size='sm'
+            variant="destructive"
+            size="sm"
             onClick={() => setOpen(true)}
           >
-            <Trash className='h-4 w-4' />
+            <Trash className="h-4 w-4" />
           </Button>
         )}
       </div>
@@ -148,11 +148,11 @@ export function ProductForm(props: ProductFormProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='w-full space-y-8'
+          className="w-full space-y-8"
         >
           <FormField
             control={form.control}
-            name='images'
+            name="images"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Image</FormLabel>
@@ -174,10 +174,10 @@ export function ProductForm(props: ProductFormProps) {
               </FormItem>
             )}
           />
-          <div className='grid grid-cols-1 gap-4'>
+          <div className="grid grid-cols-1 gap-4">
             <FormField
               control={form.control}
-              name='name'
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Name</FormLabel>
@@ -190,12 +190,12 @@ export function ProductForm(props: ProductFormProps) {
             />
             <FormField
               control={form.control}
-              name='price'
+              name="price"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Price</FormLabel>
                   <FormControl>
-                    <Input type='number' disabled={loading} {...field} />
+                    <Input type="number" disabled={loading} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -203,7 +203,7 @@ export function ProductForm(props: ProductFormProps) {
             />
             <FormField
               control={form.control}
-              name='categoryId'
+              name="categoryId"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Category</FormLabel>
@@ -232,7 +232,7 @@ export function ProductForm(props: ProductFormProps) {
             />
             <FormField
               control={form.control}
-              name='colorId'
+              name="colorId"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Color</FormLabel>
@@ -261,9 +261,9 @@ export function ProductForm(props: ProductFormProps) {
             />
             <FormField
               control={form.control}
-              name='isFeatured'
+              name="isFeatured"
               render={({ field }) => (
-                <FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4'>
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -271,7 +271,7 @@ export function ProductForm(props: ProductFormProps) {
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
-                  <div className='space-y-1 leading-none'>
+                  <div className="space-y-1 leading-none">
                     <FormLabel>Featured</FormLabel>
                     <FormDescription>
                       This product will appear on the home page
@@ -282,9 +282,9 @@ export function ProductForm(props: ProductFormProps) {
             />
             <FormField
               control={form.control}
-              name='isArchived'
+              name="isArchived"
               render={({ field }) => (
-                <FormItem className='flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4'>
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -292,7 +292,7 @@ export function ProductForm(props: ProductFormProps) {
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
-                  <div className='space-y-1 leading-none'>
+                  <div className="space-y-1 leading-none">
                     <FormLabel>Archived</FormLabel>
                     <FormDescription>
                       This product will not appear anywhere in the store.
@@ -302,7 +302,7 @@ export function ProductForm(props: ProductFormProps) {
               )}
             />
           </div>
-          <Button disabled={loading} className='ml-auto' type='submit'>
+          <Button disabled={loading} className="ml-auto" type="submit">
             {action}
           </Button>
         </form>

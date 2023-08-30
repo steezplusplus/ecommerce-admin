@@ -16,30 +16,30 @@ export function CopyPastaList(props: CopyPastaListProps) {
   const baseUrl = `${origin}/api/${params.storeId}`;
 
   return (
-    <div className='flex flex-col gap-y-2'>
+    <div className="flex flex-col gap-y-2">
       <CopyPasta
-        title='GET'
-        variant='public'
+        title="GET"
+        variant="public"
         description={`${baseUrl}/${entityName}`}
       />
       <CopyPasta
-        title='GET'
-        variant='public'
+        title="GET"
+        variant="public"
         description={`${baseUrl}/${entityName}/{${entityIdName}}`}
       />
       <CopyPasta
-        title='POST'
-        variant='admin'
+        title="POST"
+        variant="admin"
         description={`${baseUrl}/${entityName}`}
       />
       <CopyPasta
-        title='PATCH'
-        variant='admin'
+        title="PATCH"
+        variant="admin"
         description={`${baseUrl}/${entityName}/{${entityIdName}}`}
       />
       <CopyPasta
-        title='DELETE'
-        variant='admin'
+        title="DELETE"
+        variant="admin"
         description={`${baseUrl}/${entityName}/{${entityIdName}}`}
       />
     </div>

@@ -107,16 +107,16 @@ export function BillboardForm(props: BillboardFormProps) {
         onConfirm={onDelete}
         loading={loading}
       />
-      <div className='flex items-center justify-between'>
+      <div className="flex items-center justify-between">
         <Heading title={title} description={description} />
         {initialData && (
           <Button
             disabled={loading}
-            variant='destructive'
-            size='sm'
+            variant="destructive"
+            size="sm"
             onClick={() => setOpen(true)}
           >
-            <Trash className='h-4 w-4' />
+            <Trash className="h-4 w-4" />
           </Button>
         )}
       </div>
@@ -124,11 +124,11 @@ export function BillboardForm(props: BillboardFormProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='w-full space-y-8'
+          className="w-full space-y-8"
         >
           <FormField
             control={form.control}
-            name='imageUrl'
+            name="imageUrl"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Background Image</FormLabel>
@@ -144,17 +144,17 @@ export function BillboardForm(props: BillboardFormProps) {
               </FormItem>
             )}
           />
-          <div className='grid grid-cols-3 gap-8'>
+          <div className="grid grid-cols-3 gap-8">
             <FormField
               control={form.control}
-              name='label'
+              name="label"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Label</FormLabel>
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder='Billboard label'
+                      placeholder="Billboard label"
                       {...field}
                     />
                   </FormControl>
@@ -163,7 +163,7 @@ export function BillboardForm(props: BillboardFormProps) {
               )}
             />
           </div>
-          <Button disabled={loading} className='ml-auto' type='submit'>
+          <Button disabled={loading} className="ml-auto" type="submit">
             {action}
           </Button>
         </form>

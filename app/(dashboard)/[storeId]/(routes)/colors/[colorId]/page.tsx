@@ -18,8 +18,8 @@ export default async function ColorPage(props: ColorPageProps) {
   });
 
   return (
-    <div className='flex flex-col'>
-      <div className='flex-1 space-y-4 px-8 py-6'>
+    <div className="flex flex-col">
+      <div className="flex-1 space-y-4 px-8 py-6">
         <ColorForm initialData={color} />
       </div>
     </div>

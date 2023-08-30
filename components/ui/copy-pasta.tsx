@@ -33,17 +33,17 @@ export function CopyPasta(props: CopyPastaProps) {
 
   return (
     <Alert>
-      <AlertTitle className='flex items-center gap-x-2'>
-        <Server className='h-4 w-4' />
+      <AlertTitle className="flex items-center gap-x-2">
+        <Server className="h-4 w-4" />
         {title}
         <Badge variant={variantMap[variant]}>{textMap[variant]}</Badge>
       </AlertTitle>
-      <AlertDescription className='mt-4 flex items-center justify-between'>
-        <code className='relative rounded bg-muted px-2 py-1 font-mono text-sm font-semibold'>
+      <AlertDescription className="mt-4 flex items-center justify-between">
+        <code className="relative rounded bg-muted px-2 py-1 font-mono text-sm font-semibold">
           {description}
         </code>
-        <Button variant='outline' size='icon' onClick={handleCopy}>
-          <Copy className='h-4 w-4' />
+        <Button variant="outline" size="icon" onClick={handleCopy}>
+          <Copy className="h-4 w-4" />
         </Button>
       </AlertDescription>
     </Alert>

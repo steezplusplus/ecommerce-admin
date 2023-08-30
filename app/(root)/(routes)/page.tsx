@@ -15,6 +15,6 @@ export default function SetupPage() {
   }, [isOpen, onOpen]);
 
   return (
-    <div className='h-screen w-screen bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500' />
+    <div className="h-screen w-screen bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500" />
   );
 }

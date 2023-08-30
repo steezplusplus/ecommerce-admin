@@ -22,22 +22,22 @@ export function CategoryClient(props: BillboardClientProps) {
 
   return (
     <>
-      <div className='flex items-center justify-between'>
+      <div className="flex items-center justify-between">
         <Heading
           title={`Categories (${categories.length})`}
-          description='Manage categories for your store'
+          description="Manage categories for your store"
         />
         <Button
           onClick={() => router.push(`/${params.storeId}/categories/new`)}
         >
-          <Plus className='mr-2 h-4 w-4' />
+          <Plus className="mr-2 h-4 w-4" />
           Add new
         </Button>
       </div>
       <Separator />
-      <DataTable columns={columns} data={categories} searchKey='name' />
-      <Heading title='API' description="API's for categories" />
-      <CopyPastaList entityName='categories' entityIdName='categoryId' />
+      <DataTable columns={columns} data={categories} searchKey="name" />
+      <Heading title="API" description="API's for categories" />
+      <CopyPastaList entityName="categories" entityIdName="categoryId" />
     </>
   );
 }

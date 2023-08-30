@@ -33,7 +33,7 @@ export default async function DashboardLayout(props: DashboardLayoutProps) {
   return (
     <>
       <Nav />
-      <main className='p-2'>{children}</main>
+      <main className="p-2">{children}</main>
     </>
   );
 }

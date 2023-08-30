@@ -107,16 +107,16 @@ export function ColorForm(props: ColorFormProps) {
         onConfirm={onDelete}
         loading={loading}
       />
-      <div className='flex items-center justify-between'>
+      <div className="flex items-center justify-between">
         <Heading title={title} description={description} />
         {initialData && (
           <Button
             disabled={loading}
-            variant='destructive'
-            size='sm'
+            variant="destructive"
+            size="sm"
             onClick={() => setOpen(true)}
           >
-            <Trash className='h-4 w-4' />
+            <Trash className="h-4 w-4" />
           </Button>
         )}
       </div>
@@ -124,12 +124,12 @@ export function ColorForm(props: ColorFormProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='w-full space-y-8'
+          className="w-full space-y-8"
         >
-          <div className='grid grid-cols-3 gap-8'>
+          <div className="grid grid-cols-3 gap-8">
             <FormField
               control={form.control}
-              name='name'
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Name</FormLabel>
@@ -142,15 +142,15 @@ export function ColorForm(props: ColorFormProps) {
             />
             <FormField
               control={form.control}
-              name='value'
+              name="value"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Value</FormLabel>
                   <FormControl>
-                    <div className='flex items-center gap-x-4'>
+                    <div className="flex items-center gap-x-4">
                       <Input disabled={loading} {...field} />
                       <div
-                        className='rounded-full border p-4'
+                        className="rounded-full border p-4"
                         style={{ backgroundColor: field.value }}
                       />
                     </div>
@@ -160,7 +160,7 @@ export function ColorForm(props: ColorFormProps) {
               )}
             />
           </div>
-          <Button disabled={loading} className='ml-auto' type='submit'>
+          <Button disabled={loading} className="ml-auto" type="submit">
             {action}
           </Button>
         </form>

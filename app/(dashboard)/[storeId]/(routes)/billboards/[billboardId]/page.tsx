@@ -25,8 +25,8 @@ export default async function BillboardPage(props: BillboardPageProps) {
   });
 
   return (
-    <div className='flex flex-col'>
-      <div className='flex-1 space-y-4 px-8 py-6'>
+    <div className="flex flex-col">
+      <div className="flex-1 space-y-4 px-8 py-6">
         <BillboardForm initialData={billboard} />
       </div>
     </div>

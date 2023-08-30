@@ -22,21 +22,21 @@ export function ColorClient(props: ColorClientProps) {
 
   return (
     <>
-      <div className='flex items-center justify-between'>
+      <div className="flex items-center justify-between">
         <Heading
           title={`Colors (${colors.length})`}
-          description='Manage colors for your store'
+          description="Manage colors for your store"
         />
         <Button onClick={() => router.push(`/${params.storeId}/colors/new`)}>
-          <Plus className='mr-2 h-4 w-4' />
+          <Plus className="mr-2 h-4 w-4" />
           Add new
         </Button>
       </div>
       <Separator />
-      <DataTable columns={columns} data={colors} searchKey='name' />
-      <Heading title='API' description="API's for colors" />
+      <DataTable columns={columns} data={colors} searchKey="name" />
+      <Heading title="API" description="API's for colors" />
       <Separator />
-      <CopyPastaList entityName='color' entityIdName='color' />
+      <CopyPastaList entityName="color" entityIdName="color" />
     </>
   );
 }

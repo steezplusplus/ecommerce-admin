@@ -37,34 +37,34 @@ export function ImageUpload(props: ImageUploadProps) {
 
   return (
     <div>
-      <div className='mb-4 flex items-center gap-4'>
+      <div className="mb-4 flex items-center gap-4">
         {value.map((imageUrl, i) => {
           return (
             <div
               key={`${imageUrl}-${i}`}
-              className='relative h-48 w-48 overflow-hidden rounded-md'
+              className="relative h-48 w-48 overflow-hidden rounded-md"
             >
-              <div className='absolute right-2 top-2 z-10'>
+              <div className="absolute right-2 top-2 z-10">
                 <Button
-                  type='button'
-                  variant='destructive'
-                  size='icon'
+                  type="button"
+                  variant="destructive"
+                  size="icon"
                   onClick={() => onRemove(imageUrl)}
                 >
-                  <Trash className='h-4 w-4' />
+                  <Trash className="h-4 w-4" />
                 </Button>
               </div>
               <Image
                 fill
-                className='rounded-md border object-cover'
-                alt='image'
+                className="rounded-md border object-cover"
+                alt="image"
                 src={imageUrl}
               />
             </div>
           );
         })}
       </div>
-      <CldUploadWidget onUpload={onUpload} uploadPreset='qpvhxuqw'>
+      <CldUploadWidget onUpload={onUpload} uploadPreset="qpvhxuqw">
         {({ open }) => {
           const onClick = () => {
             open();
@@ -72,12 +72,12 @@ export function ImageUpload(props: ImageUploadProps) {
 
           return (
             <Button
-              type='button'
+              type="button"
               disabled={disabled}
-              variant='secondary'
+              variant="secondary"
               onClick={onClick}
             >
-              <ImagePlus className='mr-2 h-4 w-4' />
+              <ImagePlus className="mr-2 h-4 w-4" />
               Upload an image
             </Button>
           );

@@ -30,8 +30,8 @@ export default async function SettingsPage(props: SettingsPageProps) {
   }
 
   return (
-    <div className='flex flex-col'>
-      <div className='flex-1 space-y-4 px-8 pb-8 pt-6'>
+    <div className="flex flex-col">
+      <div className="flex-1 space-y-4 px-8 pb-8 pt-6">
         <SettingsForm initialData={store} />
       </div>
     </div>

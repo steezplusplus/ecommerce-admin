@@ -56,9 +56,7 @@ export function NavLinks(props: NavLinksProps) {
               href={route.href}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-primary',
-                route.active
-                  ? 'text-black underline'
-                  : 'text-gray-700'
+                route.active ? 'text-black underline' : 'text-gray-700'
               )}
             >
               {route.label}

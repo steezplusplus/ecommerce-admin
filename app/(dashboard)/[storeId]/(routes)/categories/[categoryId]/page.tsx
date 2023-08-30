@@ -24,8 +24,8 @@ export default async function CategoryPage(props: BillboardPageProps) {
   });
 
   return (
-    <div className='flex flex-col'>
-      <div className='flex-1 space-y-4 px-8 py-6'>
+    <div className="flex flex-col">
+      <div className="flex-1 space-y-4 px-8 py-6">
         <CategoryForm initialData={category} billboards={billboards} />
       </div>
     </div>
