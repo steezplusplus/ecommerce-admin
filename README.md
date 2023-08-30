@@ -13,16 +13,12 @@
 - [Cloudinary](https://cloudinary.com/)
 - [Clerk](https://clerk.com/)
 
-### Features
+## Features
 
 - Passwordless signup
 - Friendly html forms for creating, updating and deleting resources
 
-### Database Schema
-
-TODO
-
-### Setup
+## Setup
 
 1. Clone this project
 
@@ -65,16 +61,16 @@ npm run dev
 - Use the API endpoints it generates to create your own frontend.
 - Or, view an exmaple frontend I've built here: [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
 
-#### Available commands
+## Available commands
 
 | command | description                              |
 | :------ | :--------------------------------------- |
 | `dev`   | Starts a development instance of the app |
 
-### Entity Relationship Diagram
+## Entity Relationship Diagram
 
 ![ER Diagram](diagrams/er-diagram.svg)
 
-### MIT License
+## MIT License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
