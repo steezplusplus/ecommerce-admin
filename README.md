@@ -2,6 +2,8 @@
 
 - Manage multiple vendors operations through this single dashboard with unparalleled efficiency.
 
+![API Routes](diagrams/api-example.png)
+
 ## Built with
 
 - [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
