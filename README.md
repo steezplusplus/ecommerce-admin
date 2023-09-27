@@ -1,15 +1,17 @@
-<div align="center">
+<div>
+  <!-- Heading -->
   <section>
     <h1>
       <a href="https://ecommerce-admin-steez.vercel.app/" target="_blank" >
-        Build your own e-commerce store
+        E-commerce Admin
       </a>
     </h1>
-    <img src="diagrams/api-example.png" alt="picture of my store" />
+    <img src="diagrams/api-example.png" alt="Preview image of the website" />
     <h2>
-      Manage multiple vendors operations.
+      Manage multiple micro frontends with this toolkit.
     </h2>
   </section>
+  <!-- Badges -->
   <section>
     <a href="https://github.com/steezplusplus/ecommerce-admin/stargazers" target="_blank" >
       <img
@@ -47,101 +49,78 @@
       />
     </a>
   </section>
+  <!-- Tech Stack -->
   <section>
     <h2>Built with</h2>
-    <p>typescript - postcss - eslint - prettier - tailwind - vercel - nextjs13 - cloudinary - clerk</p>
+    <p>vercel - cloudinary - clerk - supabase - nextjs13 - typescript - tailwind</p>
   </section>
-  <br />
-  <section>
+  <!-- Support -->
+   <section>
     <h2>Support me!</h2>
+    <a href="https://ko-fi.com/W7W5PB4J9" target="_blank"> 
+      <img src="https://ko-fi.com/img/githubbutton_sm.svg"/> 
+    </a>
     <p>
-      If you liked my e-commerce admin
-      <br />
-      <em>Leave a ⭐</em>
-    </p>
-    <p>
-      Have a question?
-      <br />
-      <em>
-        <a href="https://twitter.com/CodingSteez" target="_blank">Send me a tweet</a>
-      </em>
-    </p>
-    <p>
-      Want to use my code?
-      <br />
-      <em>
-        Go ahead! If you make anything cool, I'd love to see it.
-      </em>
-    </p>
-    <p>
-      Find an issue?
-      <br />
-      <em>
-        <a href="https://github.com/steezplusplus/ecommerce-admin/issues" target="_blank">Please open an issue</a>
-      </em>
+      <i>Or leave a ⭐</i>
     </p>
   </section>
-  <br />
-</div>
 
 ## Features
 
-- Passwordless signup
-- Friendly html forms for creating, updating and deleting resources
+- Passwordless signup with Google social integration
+- CRUD operations for creating a store, billboards, products, colors, categories, and more
+- Upload the resources that your store will need
+- Automatically generates API endpoints for your frontend to use
+- Use Any frontend framework that you like!
 
 ## Setup
 
 1. Clone this project
 
+```shell
+git clone ...
+```
+
 2. Install Packages
 
 ```shell
-npm i
+npm install
 ```
 
-3. Setup `.env`
+3. Generate your dotenv file. Follow the instructions in the file to get the env variables.
 
 ```shell
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
-DIRECT_DATABASE_URL=
-DATABASE_URL=
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
+cp .env.example .env
 ```
 
-3. Prepare prisma
+4. Prepare prisma
 
 ```shell
 npx prisma generate
 npx prisma db push
 ```
 
-4. Start the app
+5. Start the app
 
 ```shell
 npm run dev
 ```
 
-5. Create your store
-
-- Uploading resources with the dashboard
-- Use the API endpoints it generates to create your own frontend.
-- Or, view an exmaple frontend I've built here: [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
+## View an exmaple frontend I've built here: [E-commerce Store](https://github.com/steezplusplus/ecommerce-store)
 
 ## Available commands
 
-| command | description                              |
-| :------ | :--------------------------------------- |
-| `dev`   | Starts a development instance of the app |
+| command        | description                              |
+| :------------- | :--------------------------------------- |
+| `dev`          | Starts a development instance of the app |
+| `build`        | Builds a production instance of the app  |
+| `start`        | Starts a production instance of the app  |
+| `lint`         | Runs ESLint                              |
+| `lint:fix`     | Runs ESLint and fixes syntax             |
+| `prettier`     | Runs Prettier                            |
+| `prettier:fix` | Runs Prettier and fixes formatting       |
+| `postinstall`  | Generates Primsa client                  |
 
 ## Entity Relationship Diagram
 
 ![ER Diagram](diagrams/er-diagram.svg)
-
-## MIT License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE.md)
