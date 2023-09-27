@@ -24,7 +24,7 @@ export async function Nav() {
         <li>
           <StoreSwitcher stores={stores} className="" />
         </li>
-        <NavLinks className="mx-6" />
+        <NavLinks />
         <li className="ml-auto">
           <UserButton afterSignOutUrl="/" />
         </li>
