@@ -5,45 +5,42 @@ import Link from 'next/link';
 
 import { cn } from '@/lib/utils';
 
-type NavLinksProps = {
-  className: string;
-};
-
-export function NavLinks(props: NavLinksProps) {
-  const { className } = props;
+export function NavLinks() {
   const params = useParams();
   const pathName = usePathname();
+
+  const { storeId } = params;
 
   const routes = [
     {
       label: 'Overview',
-      href: `/${params.storeId}`,
-      active: pathName.startsWith(`/${params.storeId}`),
+      href: `/${storeId}`,
+      active: pathName.endsWith(`/${storeId}`),
     },
     {
       label: 'Billboards',
-      href: `/${params.storeId}/billboards`,
-      active: pathName.startsWith(`/${params.storeId}/billboards`),
+      href: `/${storeId}/billboards`,
+      active: pathName.startsWith(`/${storeId}/billboards`),
     },
     {
       label: 'Categories',
-      href: `/${params.storeId}/categories`,
-      active: pathName.startsWith(`/${params.storeId}/categories`),
+      href: `/${storeId}/categories`,
+      active: pathName.startsWith(`/${storeId}/categories`),
     },
     {
       label: 'Colors',
-      href: `/${params.storeId}/colors`,
-      active: pathName.startsWith(`/${params.storeId}/colors`),
+      href: `/${storeId}/colors`,
+      active: pathName.startsWith(`/${storeId}/colors`),
     },
     {
       label: 'Products',
-      href: `/${params.storeId}/products`,
-      active: pathName.startsWith(`/${params.storeId}/products`),
+      href: `/${storeId}/products`,
+      active: pathName.startsWith(`/${storeId}/products`),
     },
     {
       label: 'Settings',
-      href: `/${params.storeId}/settings`,
-      active: pathName.startsWith(`/${params.storeId}/settings`),
+      href: `/${storeId}/settings`,
+      active: pathName.startsWith(`/${storeId}/settings`),
     },
   ];
 
